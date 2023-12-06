@@ -1,56 +1,14 @@
 import flet as ft
+from assets.components.appBar import create_app_bar
+from assets.components.navigationRail import create_navigation_rail
+
 
 def main(page: ft.Page):
-    def check_item_clicked(e):
-        e.control.checked = not e.control.checked
-        page.update()
+    # AppBar
+    app_bar = create_app_bar()
 
     # NavigationRail
-    rail = ft.NavigationRail(
-        selected_index=0,
-        label_type=ft.NavigationRailLabelType.ALL,
-        min_width=120,
-        min_extended_width=400,
-        leading=ft.FloatingActionButton(icon=ft.icons.CREATE, text="Add"),
-        group_alignment=-0.9,
-        destinations=[
-            ft.NavigationRailDestination(
-                icon=ft.icons.FAVORITE_BORDER, selected_icon=ft.icons.FAVORITE, label="First"
-            ),
-            ft.NavigationRailDestination(
-                icon_content=ft.Icon(ft.icons.BOOKMARK_BORDER),
-                selected_icon_content=ft.Icon(ft.icons.BOOKMARK),
-                label="Second",
-            ),
-            ft.NavigationRailDestination(
-                icon=ft.icons.SETTINGS_OUTLINED,
-                selected_icon_content=ft.Icon(ft.icons.SETTINGS),
-                label_content=ft.Text("Settings"),
-            ),
-        ],
-        on_change=lambda e: print("Selected destination:", e.control.selected_index),
-    )
-
-    # AppBar
-    page.appbar = ft.AppBar(
-        leading=ft.Icon(name=ft.icons.GAMES, color=ft.colors.BLUE),
-        leading_width=40,
-        title=ft.Text("TechTemple"),
-        center_title=False,
-        bgcolor=ft.colors.SURFACE_VARIANT,
-        actions=[
-            ft.IconButton(ft.icons.WB_SUNNY_OUTLINED),
-            ft.PopupMenuButton(
-                items=[
-                    ft.PopupMenuItem(text="Item 1"),
-                    ft.PopupMenuItem(),  # divider
-                    ft.PopupMenuItem(
-                        text="Checked item", checked=False, on_click=check_item_clicked
-                    ),
-                ]
-            ),
-        ],
-    )
+    navigation_rail = create_navigation_rail()
 
     # Responsive Cards
     cards = ft.Row(
@@ -66,7 +24,8 @@ def main(page: ft.Page):
                         width=190,
                         height=245,
                         border_radius=10,
-                        on_click=lambda e: print("Clickable without Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable without Ink clicked!"),
                     ),
                 ]
             ),
@@ -82,7 +41,8 @@ def main(page: ft.Page):
                         height=245,
                         border_radius=10,
                         ink=True,
-                        on_click=lambda e: print("Clickable with Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable with Ink clicked!"),
                     ),
                 ]
             ),
@@ -97,11 +57,12 @@ def main(page: ft.Page):
                         height=245,
                         border_radius=10,
                         ink=True,
-                        on_click=lambda e: print("Clickable transparent with Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable transparent with Ink clicked!"),
                     ),
                 ]
             ),
-             ft.Column(
+            ft.Column(
                 [
                     ft.Container(
                         content=ft.Text("Clickable with Ink"),
@@ -113,7 +74,8 @@ def main(page: ft.Page):
                         height=245,
                         border_radius=10,
                         ink=True,
-                        on_click=lambda e: print("Clickable with Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable with Ink clicked!"),
                     ),
                 ]
             ),
@@ -128,11 +90,12 @@ def main(page: ft.Page):
                         height=245,
                         border_radius=10,
                         ink=True,
-                        on_click=lambda e: print("Clickable transparent with Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable transparent with Ink clicked!"),
                     ),
                 ]
             ),
-             ft.Column(
+            ft.Column(
                 [
                     ft.Container(
                         content=ft.Text("Clickable without Ink"),
@@ -143,7 +106,8 @@ def main(page: ft.Page):
                         width=190,
                         height=245,
                         border_radius=10,
-                        on_click=lambda e: print("Clickable without Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable without Ink clicked!"),
                     ),
                 ]
             ),
@@ -159,23 +123,28 @@ def main(page: ft.Page):
                         height=245,
                         border_radius=10,
                         ink=True,
-                        on_click=lambda e: print("Clickable with Ink clicked!"),
+                        on_click=lambda e: print(
+                            "Clickable with Ink clicked!"),
                     ),
                 ]
             ),
-             
-          
+
+
         ],
         alignment=ft.MainAxisAlignment.CENTER,
-        spacing=10, 
+        spacing=10,
     )
 
-    # Layout principal
     page.add(
+        app_bar,
         ft.Row(
-            [rail, ft.VerticalDivider(width=0.1), cards],
+            [
+                navigation_rail,
+                ft.VerticalDivider(width=0.1), cards],
             expand=True,
         )
     )
 
+
+# Inicializar o aplicativo
 ft.app(target=main)
