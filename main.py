@@ -8,7 +8,7 @@ def main(page: ft.Page):
     app_bar = create_app_bar()
 
     # NavigationRail
-    navigation_rail = create_navigation_rail()
+    # navigation_rail = create_navigation_rail()
 
     # Responsive Cards
     cards = ft.Row(
@@ -139,9 +139,9 @@ def main(page: ft.Page):
         app_bar,
         ft.Row(
             [
-                navigation_rail,
-                ft.VerticalDivider(width=0.1), cards],
-            expand=True,
+                # navigation_rail,
+                cards],
+            expand=False,
         )
     )
 
