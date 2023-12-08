@@ -2,6 +2,7 @@ import flet as ft
 
 
 def create_app_bar():
+
     return ft.AppBar(
         bgcolor='#0C4B85',
 
@@ -16,6 +17,10 @@ def create_app_bar():
         actions=[
             # icone do carrinho - adicionar a mudança de rota ainda
             ft.IconButton(ft.icons.SHOPPING_CART_ROUNDED,
-                          tooltip='Ir para o carrinho', icon_color='#FFFFFF', icon_size=30),
+                          tooltip='Ir para o carrinho',
+                          icon_color='#FFFFFF',
+                          icon_size=30,
+                          ),
+
         ],
     )
