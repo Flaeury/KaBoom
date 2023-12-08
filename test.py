@@ -21,9 +21,9 @@ def main(page: Page):
         expand=1,
         runs_count=5,
         max_extent=240,
+
         auto_scroll=True,
         spacing=170,
-        padding=10,
         run_spacing=100,
     )
 
@@ -50,7 +50,7 @@ def main(page: Page):
                         elevation=10,
                         content=ft.Container(
                             bgcolor="white",
-                            width=230,
+                            width=240,
                             height=340,
                             content=ft.Column([
                                 ft.Image(src=product["image"],
@@ -59,8 +59,8 @@ def main(page: Page):
                                          height=140),
                                 ft.Container(
                                     padding=10,
-                                    width=230,
-                                    height=175,
+                                    width=240,
+                                    height=180,
                                     bgcolor="#a0a0a0",
                                     border_radius=ft.border_radius.only(
                                         top_left=10, top_right=10
@@ -69,23 +69,16 @@ def main(page: Page):
                                         ft.Text(product["name"],
                                                 size=16,
                                                 weight=ft.FontWeight.BOLD),
-                                        ft.Text(f"Preço: R$ {product['price']}",
-                                                size=15, weight="bold"),
+                                        ft.Text(f"R$ {product['price']}",
+                                                size=14),
                                         ft.Text(f"Estoque: {product['estoque']}",
                                                 size=14),
-
-                                        ft.Row([
-
-                                            ft.ElevatedButton(
-                                                text="Comprar",
-                                                bgcolor="#ff6b00",
-                                                color="white",
-                                                width=180,
-                                                height=35,
-                                                on_click=orderBtn
-                                            ),
-
-                                        ], spacing="spaceBetween"),
+                                        ft.ElevatedButton(
+                                            text="Comprar",
+                                            bgcolor="#4CAF50",
+                                            color="white",
+                                            on_click=orderBtn
+                                        )
                                     ])
                                 )
                             ])
@@ -98,11 +91,10 @@ def main(page: Page):
         AppBar(
             title=Text("TechTemple", size=32),
             bgcolor="#0c4b85",
-
         ),
 
         Column([
-
+            # Text("O", size=22, weight="bold")
             gridView,
         ]),
     )
