@@ -12,7 +12,7 @@ def create_app_bar(page):
         ),
         leading=ft.Icon(
                         name=ft.icons.GAMEPAD_ROUNDED,
-                        size=30,
+                        size=41,
                         color='#FF7E20',
                         scale=10
             ),
