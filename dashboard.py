@@ -10,28 +10,28 @@ def create_product_card(product):
         elevation=10,
         content=ft.Container(
             bgcolor="white",
-            width=210,
-            height=80,
+            width=220,
+            height=280,
             content=ft.Column([
                 ft.Image(src=product["image"],
                          width="auto",
-                         height=135),
+                         height=165),
                 ft.Container(
                     padding=10,
                     width="auto",
-                    height=190,
+                    height=185,
                     bgcolor="#a0a0a0",
                     border_radius=ft.border_radius.only(
                         top_left=10, top_right=10, bottom_left=5, bottom_right=5,
                     ),
                     content=ft.Column([
                         ft.Text(product["name"],
-                                size=17,
+                                size=16,
                                 weight=ft.FontWeight.BOLD),
                         ft.Text(f"R$ {product['price']}",
-                                size=16, weight="bold"),
+                                size=15, weight="bold"),
                         ft.Text(f"Estoque: {product['estoque']}",
-                                size=15),
+                                size=14),
 
                         ft.Row([
                             ft.ElevatedButton(
@@ -56,9 +56,9 @@ def create_product_grid(folder_paths):
         expand=1,
         runs_count=5,
         max_extent=330,
-        spacing=100,
-        padding=30,
-        run_spacing=60,
+        spacing=110,
+        padding=80,
+        run_spacing=80,
     )
 
     for folder_path in folder_paths:

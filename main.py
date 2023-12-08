@@ -4,8 +4,10 @@ from flet import *
 
 
 def main(page: ft.Page):
-    page.padding = 50,
-    page.title = "Routes Example"
+
+    page.update()
+
+    page.title = "TechTemple"
 
     def route_change(route):
         page.views.clear()
@@ -14,6 +16,7 @@ def main(page: ft.Page):
                 "/",
                 [
                     ft.AppBar(
+                        toolbar_height=70,
                         title=ft.Text(
                             value='TechTemple',
                             color='#FFFFFF',
@@ -48,22 +51,10 @@ def main(page: ft.Page):
                     "/cart",
                     [
                         ft.AppBar(
-                            title=ft.Text(
-                                value='TechTemple',
-                                color='#FFFFFF',
-                                font_family='assets/fonts/BungeeSpice',
-                                size=45,
-                                italic=True,
-                            ),
-                            leading=ft.Icon(
-                                name=ft.icons.GAMEPAD_ROUNDED,
-                                size=25,
-                                color='#FF7E20',
-                                scale=10
-                            ),
                             bgcolor='#0C4B85',
                             toolbar_height=70,
-
+                            title=ft.Text("Carrinho", color=ft.colors.ORANGE_600,
+                                          font_family='LuckiestGuy', weight="bold", size=22),
                         ),
                     ],
                 )
