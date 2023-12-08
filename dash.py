@@ -4,6 +4,44 @@ from pathlib import Path
 import random
 from flet import *
 
+# productList = Row(scroll="always")
+# selectedprice = Text(1, size=20, weight="bold")
+# listOrder = Column(scroll="always")
+# pressed = 0
+
+itemselectedimage = Image(width=100, height=50)
+itemselectedname = Text()
+itemselectedprice = Text()
+
+# ERRO AQUI NESSA FUNÇÃO, RETORNA SEMPRE O ELSE.
+
+
+def addToCartBtn(e):
+    userOrder = []
+    quantidade = 1
+
+    # Check if e.control and e.control.data are not None
+    if e.control and e.control.data:
+        itemselectedname.value = e.control.data.get('name', '')
+        itemselectedprice.value = e.control.data.get('price', '')
+        itemselectedimage.src = e.control.data.get('image', '')
+
+        userOrder.append(quantidade, itemselectedimage.src,
+                         itemselectedname.value, itemselectedprice.value)
+
+        print(itemselectedprice)
+        print(itemselectedprice.value)
+
+        order_string = str(userOrder)
+
+        with open('checkoutBD.txt', 'w', encoding="utf-8") as f:
+            conteudo = f.write(order_string)
+            print(conteudo)
+    else:
+        print("Error: Missing data in the control.")
+
+# FINAL DA FUNÇÃO COM ERRO
+
 
 def create_product_card(product):
     return ft.Card(
@@ -40,7 +78,7 @@ def create_product_card(product):
                                 color="white",
                                 width=180,
                                 height=45,
-                                # on_click=orderBtn
+                                on_click=addToCartBtn  # CHAMADA DA FUNÇÃO COM ERRO
                             ),
                         ], alignment="center"),
                     ])
@@ -71,7 +109,7 @@ def create_product_grid(folder_paths):
                     "name": product_name,
                     "image": os.path.join(folder_path, file_name),
                     "estoque": random.randint(1, 10),
-                    "price": random.randint(2400, 5990),
+                    "price": random.randint(2300, 6990),
                 }
 
                 gridView.controls.append(create_product_card(product))

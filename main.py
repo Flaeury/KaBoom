@@ -16,9 +16,9 @@ def main(page: ft.Page):
         page.views.append(
             ft.View(
                 "/",
-                [   # AppBar Principal
+                [
                     create_app_bar(page),
-                    # Página Principal
+
                     dash.create_product_grid(["assets/img/xbox/", "assets/img/placavideo/",
                                               "assets/img/notebooks/", "assets/img/playstation/", "assets/img/processadores/", "assets/img/assistentesvirtuais/", "assets/img/tablets/"]),
                 ],
@@ -35,6 +35,7 @@ def main(page: ft.Page):
                             title=ft.Text("Carrinho", color=ft.colors.ORANGE_600,
                                           font_family='BungeeSpice'),
                         ),
+
                     ],
                 )
             )
