@@ -18,8 +18,8 @@ def main(page: Page):
         'LuckiestGuy': 'fonts/LuckiestGuy-Regular.ttf',
     }
 
-    folder_paths = ["assets/img/xbox/",
-                    "assets/img/notebooks/", "assets/img/playstation/"]
+    folder_paths = ["assets/img/xbox/", "assets/img/placavideo/",
+                    "assets/img/notebooks/", "assets/img/playstation/", "assets/img/processadores/", "assets/img/assistentesvirtuais/", "assets/img/tablets/"]
 
     mycounter = Text(1, size=12, weight="bold")
     precoSelecionado = Text(weight="bold")
