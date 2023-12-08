@@ -5,9 +5,9 @@ from assets.components.appBar import create_app_bar
 
 def main(page: ft.Page):
     page.fonts = {
-        'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf'
+        'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
-    page.padding = 50,
+    page.padding = 50
     page.title = "Routes Example"
 
     def route_change(route):
