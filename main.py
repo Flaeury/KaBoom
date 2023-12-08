@@ -1,9 +1,9 @@
 import flet as ft
-from dashboard import main
+import dash
 
 
 def main(page: ft.Page):
-    dashboard = main()
+    page.title = "Routes Example"
 
     def route_change(route):
         page.views.clear()
@@ -13,55 +13,37 @@ def main(page: ft.Page):
                 [
                     ft.AppBar(
                         bgcolor='#0C4B85',
-
                         toolbar_height=70,
-
                         title=ft.Text('TechTemple', color=ft.colors.ORANGE_600,
                                       font_family='LuckiestGuy'),
-                        # logo da plataforma
                         leading=ft.Icon(name=ft.icons.VIDEOGAME_ASSET_OUTLINED,
                                         color=ft.colors.ORANGE_600, size=50),
                         leading_width=100,
                         actions=[
-                            # icone do carrinho - adicionar a mudança de rota ainda
                             ft.IconButton(ft.icons.SHOPPING_CART_ROUNDED,
                                           tooltip='Ir para o carrinho',
                                           icon_color='#FFFFFF',
                                           icon_size=30,
-                                          on_click=lambda _: page.go("/cart"),
+                                          on_click=lambda _: page.go("/store"),
                                           ),
-
                         ],
                     ),
-                    dashboard,
+                    dash.create_product_grid(["assets/img/xbox/",
+                                              "assets/img/notebooks/", "assets/img/playstation/"]),
                 ],
-            ),
-        ),
-
-        if page.route == "/cart":
+            )
+        )
+        if page.route == "/store":
             page.views.append(
                 ft.View(
-                    "/cart",
+                    "/store",
                     [
                         ft.AppBar(
                             bgcolor='#0C4B85',
-
                             toolbar_height=70,
-
-                            title=ft.Text('TechTemple', color=ft.colors.ORANGE_600,
+                            title=ft.Text("Carrinho", color=ft.colors.ORANGE_600,
                                           font_family='LuckiestGuy'),
-                            # logo da plataforma
-                            leading=ft.Icon(name=ft.icons.VIDEOGAME_ASSET_OUTLINED,
-                                            color=ft.colors.ORANGE_600, size=50),
-                            leading_width=100,
-                            actions=[
-                                # icone do carrinho - adicionar a mudança de rota ainda
-                                ft.ElevatedButton(
-                                    "Voltar", on_click=lambda _: page.go("/")),
-
-                            ],
                         ),
-                        # ALGO AQUI PARA O CART
                     ],
                 )
             )
