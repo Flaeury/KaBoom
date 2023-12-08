@@ -3,12 +3,18 @@ import os
 from pathlib import Path
 import random
 from flet import *
+from assets.components.appBar import create_app_bar
 
 
 def main(page: Page):
+    appBar = create_app_bar()
     page.theme_mode = ThemeMode.LIGHT
     page.padding = 50
     page.update()
+
+    page.fonts = {
+        'LuckiestGuy': 'fonts/LuckiestGuy-Regular.ttf',
+    }
 
     folder_paths = ["assets/img/xbox/",
                     "assets/img/notebooks/", "assets/img/playstation/"]
@@ -95,11 +101,7 @@ def main(page: Page):
                 page.update()
 
     page.add(
-        AppBar(
-            title=Text("TechTemple", size=32),
-            bgcolor="#0c4b85",
-
-        ),
+        appBar,
 
         Column([
 
