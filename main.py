@@ -4,6 +4,7 @@ from flet import *
 
 
 def main(page: ft.Page):
+    page.padding = 50,
     page.title = "Routes Example"
 
     def route_change(route):

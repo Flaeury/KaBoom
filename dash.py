@@ -56,9 +56,9 @@ def create_product_grid(folder_paths):
         expand=1,
         runs_count=5,
         max_extent=260,
-        auto_scroll=True,
+
         spacing=170,
-        padding=20,
+        padding=40,
         run_spacing=100,
     )
 
