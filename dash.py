@@ -36,7 +36,10 @@ def addToCartBtn(e):
         with open('./assets/BD/checkoutBD.txt', 'a', encoding="utf-8") as f:
             conteudo = f.write(f"{order_string}\n")
         
-        dlg = ft.AlertDialog(title=ft.Text("Produto adicionado ao carrinho!"))
+        dlg = ft.AlertDialog(
+            title=ft.Text("SUCESSO!"),
+            content=ft.Text("Produto adicionado ao carrinho."),
+            shape=ft.BeveledRectangleBorder(radius=4))
         page.dialog = dlg
         dlg.open = True
         page.update()
