@@ -62,3 +62,10 @@ def optionsPayment():
                     creditCard]),
                     on_change=radiogroup_changed)
     return mensage, options
+
+def main(page: ft.Page):
+    mensage, option = optionsPayment()
+                
+    page.add(ft.Text('Selecione seu método de pagamento'), option, mensage)
+
+ft.app(target=main, assets_dir='assets')
