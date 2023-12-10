@@ -53,6 +53,9 @@ def create_cards_from_file(file_path):
     return cards
 
 
+file_path = "./assets/BD/checkoutBD.txt"
+
+
 def selected_products():
     return ft.ListView(
         auto_scroll=True,
