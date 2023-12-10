@@ -8,7 +8,6 @@ itemselectedimage = Image(width=100, height=50)
 itemselectedname = Text()
 itemselectedprice = Text()
 
-# ERRO AQUI NESSA FUNÇÃO, RETORNA SEMPRE O ELSE.
 
 
 def addToCartBtn(e):
@@ -33,7 +32,6 @@ def addToCartBtn(e):
     else:
         print("Error: Missing data in the control.")
 
-# FINAL DA FUNÇÃO COM ERRO
 
 
 def create_product_card(product):
