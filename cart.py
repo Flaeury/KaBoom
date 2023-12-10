@@ -28,7 +28,7 @@ def create_product_card(product):
 
                         ft.Text(product["name"],
                                 size=18,
-                                color=ft.colors.ORANGE_600,
+                                color=ft.colors.BLACK,
                                 weight=ft.FontWeight.BOLD),
                         ft.Text(f"R$ {product['price']}",
                                 size=17,
@@ -36,17 +36,23 @@ def create_product_card(product):
                         ft.Text(f"Estoque: {product['estoque']}",
                                 size=17,
                                 color=ft.colors.BLACK),
+                        ft.Text("spacing", size=5, color="#f5f5f5"),
+                        ft.ElevatedButton(
+                            text="Remover",
+                            icon="delete",
+                            # width=180,
+                            height=40,
+                            icon_color="white",
+                            bgcolor="#ff6b00",
+                            color="white",
+                        ),
                     ])
                 ),
+
                 ft.Container(
-                    padding=10,
+                    padding=50,
                     content=ft.Column([
-                        ft.IconButton(
-                            icon=ft.icons.DELETE_FOREVER_ROUNDED,
-                            icon_color="red400",
-                            icon_size=40,
-                            tooltip="Apagar produto",
-                        ),
+
                     ])
                 )
             ])
