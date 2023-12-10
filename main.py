@@ -3,16 +3,18 @@ import dash
 from flet import *
 from assets.components.appBar import create_app_bar
 import os
+import cart
 
 
 def main(page: ft.Page):
+
     page.fonts = {
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
     page.padding = 50
     page.title = "KaBoom!"
-    #page.window_full_screen=True
-    page.theme_mode=ft.ThemeMode.DARK
+    # page.window_full_screen=True
+    page.theme_mode = ft.ThemeMode.DARK
 
     def route_change(route):
         page.views.clear()
@@ -22,13 +24,7 @@ def main(page: ft.Page):
                 [
                     create_app_bar(page),
 
-                    dash.create_product_grid(["./assets/img/xbox/",
-                                              "./assets/img/placavideo/",
-                                              "./assets/img/notebooks/",
-                                              "./assets/img/playstation/",
-                                              "./assets/img/processadores/",
-                                              "./assets/img/assistentesvirtuais/",
-                                              "./assets/img/tablets/"]),
+                    dash.create_product_grid("./assets/BD/products.txt"),
                 ],
             )
         )
@@ -43,6 +39,7 @@ def main(page: ft.Page):
                             title=ft.Text("Carrinho", color=ft.colors.ORANGE_600,
                                           font_family='BungeeSpice'),
                         ),
+                        cart.selected_products()
 
                     ],
                 )

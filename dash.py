@@ -1,39 +1,40 @@
+import json
 import flet as ft
-import os
-from pathlib import Path
-import random
 from flet import *
 
-itemselectedimage = Image(width=100, height=50)
-itemselectedname = Text()
-itemselectedprice = Text()
 
-# ERRO AQUI NESSA FUNÇÃO, RETORNA SEMPRE O ELSE.
+itemselectedimage = ft.Image(width=100, height=50)
+itemselectedname = ft.Text()
+itemselectedprice = ft.Text()
+itemselectednamestock = ft.Text()
 
 
 def addToCartBtn(e):
     userOrder = []
     quantidade = 1
 
-    print(e.control.key)
+    # print(e.control.key)
 
     if type(e.control.key) is dict:
         itemselectedname.value = e.control.key['name']
         itemselectedprice.value = e.control.key['price']
         itemselectedimage.src = e.control.key['image']
+        itemselectednamestock.value = e.control.key['estoque']
 
-        userOrder.append([quantidade, itemselectedimage.src,
-                         itemselectedname.value, itemselectedprice.value])
+        product_details = {
+            "image": itemselectedimage.src,
+            "name": itemselectedname.value,
+            "price": itemselectedprice.value,
+            "estoque": quantidade
+        }
 
-        order_string = str(userOrder)
+        order_string = json.dumps(product_details)
 
-        with open('checkoutBD.txt', 'a', encoding="utf-8") as f:
+        with open('./assets/BD/checkoutBD.txt', 'a', encoding="utf-8") as f:
             conteudo = f.write(f"{order_string}\n")
 
     else:
         print("Error: Missing data in the control.")
-
-# FINAL DA FUNÇÃO COM ERRO
 
 
 def create_product_card(product):
@@ -64,7 +65,7 @@ def create_product_card(product):
                                 width=180,
                                 height=45,
                                 key=product,
-                                on_click=addToCartBtn  # CHAMADA DA FUNÇÃO COM ERRO
+                                on_click=addToCartBtn
                             ),
                         ], alignment="center"),
                         ft.Text(product["name"],
@@ -81,7 +82,7 @@ def create_product_card(product):
     )
 
 
-def create_product_grid(folder_paths):
+def create_product_grid(file_path):
     gridView = ft.GridView(
         child_aspect_ratio=1.0,
         expand=1,
@@ -92,21 +93,22 @@ def create_product_grid(folder_paths):
         run_spacing=60,
     )
 
-    for folder_path in folder_paths:
-        files = sorted(os.listdir(folder_path))
+    with open(file_path, 'r', encoding="utf-8") as f:
+        # Lê todo o conteúdo do arquivo
+        content = f.read()
 
-        for file_name in files:
-            if os.path.isfile(os.path.join(folder_path, file_name)):
-                product_name, ext = os.path.splitext(file_name)
-                product = {
-                    "name": product_name,
-                    "image": os.path.join(folder_path, file_name),
-                    "estoque": random.randint(1, 10),
-                    "price": random.randint(2300, 6990),
-                }
+        # Converte o conteúdo para uma lista de dicionários
+        products = [json.loads(line.strip())
+                    for line in content.split('\n') if line.strip()]
 
-                gridView.controls.append(create_product_card(product))
+        for product in products:
+            gridView.controls.append(create_product_card(product))
+
     correcaoTela = ft.Container(bgcolor='dark', height=1)
     gridView.controls.append(correcaoTela)
 
     return gridView
+
+
+file_path = "./assets/BD/products.txt"
+product_grid = create_product_grid(file_path)

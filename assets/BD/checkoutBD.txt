@@ -1,0 +1,2 @@
+{"image": "./assets/img/placavideo/Geforce RTX 2060 8Gb DirectX 12.jpg", "name": "Geforce RTX 2060 8Gb DirectX 12", "price": 3799, "estoque": 1}
+{"image": "./assets/img/xbox/Xbox Series X 512 Gb SSD + Controle sem fio.jpg", "name": "Xbox Series X 512 Gb SSD + Controle sem fio", "price": 4573, "estoque": 1}
