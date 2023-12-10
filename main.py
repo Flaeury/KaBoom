@@ -1,7 +1,7 @@
 import flet as ft
 import dash
 from flet import *
-from assets.components.appBar import create_app_bar_cart, create_app_bar_dash
+from assets.components.appBar import create_app_bar_cart, create_app_bar_dash, create_app_bar_payment
 import os
 import cart
 
@@ -36,7 +36,19 @@ def main(page: ft.Page):
                         create_app_bar_cart(page),
 
                     ],
-                    cart.selected_products()
+                    cart.selected_products(),
+                    cart.change_screen(page),
+                )
+            )
+        elif page.route == "/payment":
+            page.views.append(
+                ft.View(
+                    "/cart",
+                    [   # AppBar do carrinho
+                        create_app_bar_payment(page),
+
+                    ],
+                    Text("Pagar")
                 )
             )
         page.update()
