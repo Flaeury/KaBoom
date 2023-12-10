@@ -1,8 +1,0 @@
-{"image": "./assets/img/tablets/Samsung Glaxay Tab S6 Lite 64Gb 5G.jpg", "name": "Samsung Glaxay Tab S6 Lite 64Gb 5G", "price": 2721, "estoque": 100}
-{"image": "./assets/img/tablets/Samsung Galaxy S9 256GB Android 13.jpg", "name": "Samsung Galaxy S9 256GB Android 13", "price": 1969, "estoque": 90}
-{"image": "./assets/img/tablets/Apple Ipad 9\u00aa Gera\u00e7\u00e3o 64Gb Spacial Gray.jpg", "name": "Apple Ipad 9\u00aa Gera\u00e7\u00e3o 64Gb Spacial Gray", "price": 5402, "estoque": 58}
-{"image": "./assets/img/processadores/AMD Ryzen Threadripper PRO 5975WX.jpg", "name": "AMD Ryzen Threadripper PRO 5975WX", "price": 15678, "estoque": 74}
-{"image": "./assets/img/notebooks/Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb.jpg", "name": "Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb", "price": 4004, "estoque": 48}
-{"image": "./assets/img/xbox/Xbox Series X 512 Gb SSD + Controle sem fio.jpg", "name": "Xbox Series X 512 Gb SSD + Controle sem fio", "price": 4573, "estoque": 90}
-{"image": "./assets/img/xbox/Xbox Series X Diablo IV 1Tb Edi\u00e7\u00e3o Especial.jpg", "name": "Xbox Series X Diablo IV 1Tb Edi\u00e7\u00e3o Especial", "price": 4975, "estoque": 19}
-{"image": "./assets/img/xbox/Xbox Series X + Forza Horizon 5 Premium.jpg", "name": "Xbox Series X + Forza Horizon 5 Premium", "price": 4262, "estoque": 15}

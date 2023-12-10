@@ -104,8 +104,11 @@ def create_product_grid(file_path):
         for product in products:
             gridView.controls.append(create_product_card(product))
 
-    correcaoTela = ft.Container(bgcolor='dark', height=1)
+    correcaoTela = ft.Container(bgcolor='gray', height=1)
+    correcaoTela2 = ft.Container(bgcolor='gray', height=1)
     gridView.controls.append(correcaoTela)
+    gridView.controls.append(correcaoTela2)
+
 
     return gridView
 
