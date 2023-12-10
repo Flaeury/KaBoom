@@ -4,11 +4,6 @@ from pathlib import Path
 import random
 from flet import *
 
-# productList = Row(scroll="always")
-# selectedprice = Text(1, size=20, weight="bold")
-# listOrder = Column(scroll="always")
-# pressed = 0
-
 itemselectedimage = Image(width=100, height=50)
 itemselectedname = Text()
 itemselectedprice = Text()
@@ -20,23 +15,21 @@ def addToCartBtn(e):
     userOrder = []
     quantidade = 1
 
-    # Check if e.control and e.control.data are not None
-    if e.control and e.control.data:
-        itemselectedname.value = e.control.data.get('name', '')
-        itemselectedprice.value = e.control.data.get('price', '')
-        itemselectedimage.src = e.control.data.get('image', '')
+    print(e.control.key)
 
-        userOrder.append(quantidade, itemselectedimage.src,
-                         itemselectedname.value, itemselectedprice.value)
+    if type(e.control.key) is dict:
+        itemselectedname.value = e.control.key['name']
+        itemselectedprice.value = e.control.key['price']
+        itemselectedimage.src = e.control.key['image']
 
-        print(itemselectedprice)
-        print(itemselectedprice.value)
+        userOrder.append([quantidade, itemselectedimage.src,
+                         itemselectedname.value, itemselectedprice.value])
 
         order_string = str(userOrder)
 
-        with open('checkoutBD.txt', 'w', encoding="utf-8") as f:
-            conteudo = f.write(order_string)
-            print(conteudo)
+        with open('checkoutBD.txt', 'a', encoding="utf-8") as f:
+            conteudo = f.write(f"{order_string}\n")
+
     else:
         print("Error: Missing data in the control.")
 
@@ -63,14 +56,6 @@ def create_product_card(product):
                         top_left=10, top_right=10, bottom_left=5, bottom_right=5,
                     ),
                     content=ft.Column([
-                        ft.Text(product["name"],
-                                size=17,
-                                weight=ft.FontWeight.BOLD),
-                        ft.Text(f"R$ {product['price']}",
-                                size=16, weight="bold"),
-                        ft.Text(f"Estoque: {product['estoque']}",
-                                size=15),
-
                         ft.Row([
                             ft.ElevatedButton(
                                 text="Comprar",
@@ -78,9 +63,17 @@ def create_product_card(product):
                                 color="white",
                                 width=180,
                                 height=45,
+                                key=product,
                                 on_click=addToCartBtn  # CHAMADA DA FUNÇÃO COM ERRO
                             ),
                         ], alignment="center"),
+                        ft.Text(product["name"],
+                                size=17,
+                                weight=ft.FontWeight.BOLD),
+                        ft.Text(f"R$ {product['price']}",
+                                size=16, weight="bold"),
+                        ft.Text(f"Estoque: {product['estoque']}",
+                                size=15),
                     ])
                 )
             ])

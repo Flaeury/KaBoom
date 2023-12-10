@@ -2,6 +2,7 @@ import flet as ft
 import dash
 from flet import *
 from assets.components.appBar import create_app_bar
+import os
 
 
 def main(page: ft.Page):
@@ -19,8 +20,13 @@ def main(page: ft.Page):
                 [
                     create_app_bar(page),
 
-                    dash.create_product_grid(["assets/img/xbox/", "assets/img/placavideo/",
-                                              "assets/img/notebooks/", "assets/img/playstation/", "assets/img/processadores/", "assets/img/assistentesvirtuais/", "assets/img/tablets/"]),
+                    dash.create_product_grid(["./assets/img/xbox/",
+                                              "./assets/img/placavideo/",
+                                              "./assets/img/notebooks/",
+                                              "./assets/img/playstation/",
+                                              "./assets/img/processadores/",
+                                              "./assets/img/assistentesvirtuais/",
+                                              "./assets/img/tablets/"]),
                 ],
             )
         )
