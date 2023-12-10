@@ -1,12 +1,16 @@
 import json
 import flet as ft
 from flet import *
-
+from main import Page
 
 itemselectedimage = ft.Image(width=100, height=50)
 itemselectedname = ft.Text()
 itemselectedprice = ft.Text()
 itemselectednamestock = ft.Text()
+
+def init(p):
+    global page
+    page = p
 
 
 def addToCartBtn(e):
@@ -32,6 +36,11 @@ def addToCartBtn(e):
 
         with open('./assets/BD/checkoutBD.txt', 'a', encoding="utf-8") as f:
             conteudo = f.write(f"{order_string}\n")
+        
+        dlg = ft.AlertDialog(title=ft.Text("Produto adicionado ao carrinho!"))
+        page.dialog = dlg
+        dlg.open = True
+        page.update()
 
     else:
         print("Error: Missing data in the control.")

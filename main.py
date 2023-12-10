@@ -5,9 +5,8 @@ from assets.components.appBar import create_app_bar_cart, create_app_bar_dash, c
 import os
 import cart
 
-
 def main(page: ft.Page):
-
+    dash.init(page)
     page.fonts = {
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
