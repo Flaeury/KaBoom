@@ -45,7 +45,7 @@ def create_product_card(product):
             height=80,
             content=ft.Column([
                 ft.Image(src=product["image"],
-                         width="auto",
+                         width=210,
                          height=135),
                 ft.Container(
                     padding=10,
@@ -106,5 +106,7 @@ def create_product_grid(folder_paths):
                 }
 
                 gridView.controls.append(create_product_card(product))
+    correcaoTela = ft.Container(bgcolor='dark', height=1)
+    gridView.controls.append(correcaoTela)
 
     return gridView

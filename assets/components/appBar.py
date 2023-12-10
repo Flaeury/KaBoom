@@ -4,7 +4,7 @@ import flet as ft
 def create_app_bar(page):
     return ft.AppBar(
         title=ft.Text(
-                        value='TechTemple',
+                        value='KaBoom!',
                         color='#FFFFFF',
                         font_family='BungeeSpice',
                         size=45,
@@ -12,7 +12,7 @@ def create_app_bar(page):
         ),
         leading=ft.Icon(
                         name=ft.icons.GAMEPAD_ROUNDED,
-                        size=41,
+                        size=40,
                         color='#FF7E20',
                         scale=10
             ),

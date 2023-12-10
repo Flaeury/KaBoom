@@ -10,7 +10,9 @@ def main(page: ft.Page):
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
     page.padding = 50
-    page.title = "Routes Example"
+    page.title = "KaBoom!"
+    #page.window_full_screen=True
+    page.theme_mode=ft.ThemeMode.DARK
 
     def route_change(route):
         page.views.clear()
