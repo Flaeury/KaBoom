@@ -7,34 +7,34 @@ def create_product_card(product):
     return ft.Card(
         elevation=10,
         content=ft.Container(
-            bgcolor="white",
-            width="auto",
-            height=150,
+            bgcolor="#f5f5f5",
+            width=450,
+            height=190,
             border_radius=ft.border_radius.only(
                 top_left=7, top_right=7, bottom_left=7, bottom_right=7,
             ),
             content=ft.Row([
                 ft.Image(src=product["image"],
-                         width=290,
-                         height=230),
+                         width=250,
+                         height=180),
                 ft.Container(
                     padding=10,
-                    width="auto",
+                    width=450,
 
-                    height=230,
-                    bgcolor="white",
+                    height=190,
+                    bgcolor="#f5f5f5",
 
                     content=ft.Column([
 
                         ft.Text(product["name"],
-                                size=17,
+                                size=18,
                                 color=ft.colors.ORANGE_600,
                                 weight=ft.FontWeight.BOLD),
                         ft.Text(f"R$ {product['price']}",
-                                size=16,
+                                size=17,
                                 color=ft.colors.BLACK, weight="bold"),
                         ft.Text(f"Estoque: {product['estoque']}",
-                                size=15,
+                                size=17,
                                 color=ft.colors.BLACK),
                     ])
                 )
@@ -58,7 +58,7 @@ def create_cards_from_file(file_path):
 
 def selected_products():
     return ft.ListView(
-        auto_scroll=True,
+        # auto_scroll=True,
         spacing=10,
         padding=20,
         expand=1,
