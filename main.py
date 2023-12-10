@@ -1,7 +1,7 @@
 import flet as ft
 import dash
 from flet import *
-from assets.components.appBar import create_app_bar
+from assets.components.appBar import create_app_bar_cart, create_app_bar_dash
 import os
 import cart
 
@@ -22,7 +22,7 @@ def main(page: ft.Page):
             ft.View(
                 "/",
                 [
-                    create_app_bar(page),
+                    create_app_bar_dash(page),
 
                     dash.create_product_grid("./assets/BD/products.txt"),
                 ],
@@ -33,13 +33,7 @@ def main(page: ft.Page):
                 ft.View(
                     "/cart",
                     [   # AppBar do carrinho
-                        ft.AppBar(
-                            bgcolor='#0C4B85',
-                            toolbar_height=70,
-                            title=ft.Text("Carrinho", color=ft.colors.ORANGE_600,
-                                          font_family='BungeeSpice'),
-                        ),
-                        cart.selected_products()
+                        create_app_bar_cart(page),
 
                     ],
                 )

@@ -1,7 +1,7 @@
 import flet as ft
 
 
-def create_app_bar(page):
+def create_app_bar_dash(page):
     return ft.AppBar(
         title=ft.Text(
                         value='KaBoom!',
@@ -27,3 +27,11 @@ def create_app_bar(page):
                 )
         ]
     )
+
+def create_app_bar_cart(page):
+    return ft.AppBar(
+                bgcolor='#0C4B85',
+                toolbar_height=70,
+                title=ft.Text("Carrinho", color='#FF7E20',
+                font_family='BungeeSpice'),
+            )
