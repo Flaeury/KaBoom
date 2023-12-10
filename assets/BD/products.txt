@@ -1,27 +1,27 @@
-{"name": "Xbox Series X + Forza Horizon 5 Premium", "image": "./assets/img/xbox/Xbox Series X + Forza Horizon 5 Premium.jpg", "estoque": 2, "price": 4262}
-{"name": "Xbox Series X 1Tb e Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 1Tb e Controle sem fio.jpg", "estoque": 6, "price": 4303}
-{"name": "Xbox Series X 512 Gb SSD + Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 512 Gb SSD + Controle sem fio.jpg", "estoque": 5, "price": 4573}
-{"name": "Xbox Series X Diablo IV 1Tb Edição Especial", "image": "./assets/img/xbox/Xbox Series X Diablo IV 1Tb Edição Especial.jpg", "estoque": 1, "price": 4975}
-{"name": "ASUS Nvidia Rog Strix RTX 4090 24Mb Cache", "image": "./assets/img/placavideo/ASUS Nvidia Rog Strix RTX 4090 24Mb Cache.jpg", "estoque": 6, "price": 3539}
-{"name": "Geforce RTX 2060 8Gb DirectX 12", "image": "./assets/img/placavideo/Geforce RTX 2060 8Gb DirectX 12.jpg", "estoque": 9, "price": 3799}
-{"name": "Geforce RTX 3060 12Gb GDDR6 Fenix", "image": "./assets/img/placavideo/Geforce RTX 3060 12Gb GDDR6 Fenix.jpg", "estoque": 1, "price": 4463}
-{"name": "Nvidia Geforce RTX 4060 Galax", "image": "./assets/img/placavideo/Nvidia Geforce RTX 4060 Galax.jpg", "estoque": 3, "price": 3077}
-{"name": "ASUS i7-12700h 8Gb RAM RTX 3050 512 SSD", "image": "./assets/img/notebooks/ASUS i7-12700h 8Gb RAM RTX 3050 512 SSD.jpg", "estoque": 4, "price": 4783}
-{"name": "Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb", "image": "./assets/img/notebooks/Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb.jpg", "estoque": 4, "price": 4004}
-{"name": "Lenovo 3 i5-11300h GTX 1650 8Gb RAM 512 SSD", "image": "./assets/img/notebooks/Lenovo 3 i5-11300h GTX 1650 8Gb RAM 512 SSD.jpg", "estoque": 1, "price": 5115}
-{"name": "Macbook Air M2 8Gb SSD 256Gb Spacial Grey", "image": "./assets/img/notebooks/Macbook Air M2 8Gb SSD 256Gb Spacial Grey.jpg", "estoque": 1, "price": 7492}
-{"name": "PS4 1TB + jogo God Of War Ragnarok", "image": "./assets/img/playstation/PS4 1TB + jogo God Of War Ragnarok.jpg", "estoque": 9, "price": 2636}
-{"name": "PS5 825GB SSD Edição Digital + Controle", "image": "./assets/img/playstation/PS5 825GB SSD Edição Digital + Controle.jpg", "estoque": 1, "price": 5041}
-{"name": "PS5 Spider Man 2 Edição Limitada", "image": "./assets/img/playstation/PS5 Spider Man 2 Edição Limitada.jpg", "estoque": 10, "price": 5285}
-{"name": "AMD Ryzen 7 7700x 5.4GHz 40mb Cache", "image": "./assets/img/processadores/AMD Ryzen 7 7700x 5.4GHz 40mb Cache.jpg", "estoque": 2, "price": 2410}  
-{"name": "AMD Ryzen Threadripper PRO 5975WX", "image": "./assets/img/processadores/AMD Ryzen Threadripper PRO 5975WX.jpg", "estoque": 7, "price": 15678}      
-{"name": "Intel Core i5-12600K 3.7GHz 20Mb Cache", "image": "./assets/img/processadores/Intel Core i5-12600K 3.7GHz 20Mb Cache.jpg", "estoque": 3, "price": 2872}
-{"name": "Intel Core i9-13900K 5.8GHz 36Mb Cache", "image": "./assets/img/processadores/Intel Core i9-13900K 5.8GHz 36Mb Cache.jpg", "estoque": 2, "price": 2240}
+{"name": "Xbox Series X + Forza Horizon 5 Premium", "image": "./assets/img/xbox/Xbox Series X + Forza Horizon 5 Premium.jpg", "estoque": 15, "price": 4262}
+{"name": "Xbox Series X 1Tb e Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 1Tb e Controle sem fio.jpg", "estoque": 25, "price": 4303}
+{"name": "Xbox Series X 512 Gb SSD + Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 512 Gb SSD + Controle sem fio.jpg", "estoque": 90, "price": 4573}
+{"name": "Xbox Series X Diablo IV 1Tb Edição Especial", "image": "./assets/img/xbox/Xbox Series X Diablo IV 1Tb Edição Especial.jpg", "estoque": 19, "price": 4975}
+{"name": "ASUS Nvidia Rog Strix RTX 4090 24Mb Cache", "image": "./assets/img/placavideo/ASUS Nvidia Rog Strix RTX 4090 24Mb Cache.jpg", "estoque": 67, "price": 3539}
+{"name": "Geforce RTX 2060 8Gb DirectX 12", "image": "./assets/img/placavideo/Geforce RTX 2060 8Gb DirectX 12.jpg", "estoque": 40, "price": 3799}
+{"name": "Geforce RTX 3060 12Gb GDDR6 Fenix", "image": "./assets/img/placavideo/Geforce RTX 3060 12Gb GDDR6 Fenix.jpg", "estoque": 17, "price": 4463}
+{"name": "Nvidia Geforce RTX 4060 Galax", "image": "./assets/img/placavideo/Nvidia Geforce RTX 4060 Galax.jpg", "estoque": 38, "price": 3077}
+{"name": "ASUS i7-12700h 8Gb RAM RTX 3050 512 SSD", "image": "./assets/img/notebooks/ASUS i7-12700h 8Gb RAM RTX 3050 512 SSD.jpg", "estoque": 41, "price": 4783}
+{"name": "Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb", "image": "./assets/img/notebooks/Acer Nitro 5 512 SSD 8Gb Ram RTX 3050 4Gb.jpg", "estoque": 48, "price": 4004}
+{"name": "Lenovo 3 i5-11300h GTX 1650 8Gb RAM 512 SSD", "image": "./assets/img/notebooks/Lenovo 3 i5-11300h GTX 1650 8Gb RAM 512 SSD.jpg", "estoque": 13, "price": 5115}
+{"name": "Macbook Air M2 8Gb SSD 256Gb Spacial Grey", "image": "./assets/img/notebooks/Macbook Air M2 8Gb SSD 256Gb Spacial Grey.jpg", "estoque": 62, "price": 7492}
+{"name": "PS4 1TB + jogo God Of War Ragnarok", "image": "./assets/img/playstation/PS4 1TB + jogo God Of War Ragnarok.jpg", "estoque": 75, "price": 2636}
+{"name": "PS5 825GB SSD Edição Digital + Controle", "image": "./assets/img/playstation/PS5 825GB SSD Edição Digital + Controle.jpg", "estoque": 24, "price": 5041}
+{"name": "PS5 Spider Man 2 Edição Limitada", "image": "./assets/img/playstation/PS5 Spider Man 2 Edição Limitada.jpg", "estoque": 11, "price": 5285}
+{"name": "AMD Ryzen 7 7700x 5.4GHz 40mb Cache", "image": "./assets/img/processadores/AMD Ryzen 7 7700x 5.4GHz 40mb Cache.jpg", "estoque": 23, "price": 2410}  
+{"name": "AMD Ryzen Threadripper PRO 5975WX", "image": "./assets/img/processadores/AMD Ryzen Threadripper PRO 5975WX.jpg", "estoque": 74, "price": 15678}      
+{"name": "Intel Core i5-12600K 3.7GHz 20Mb Cache", "image": "./assets/img/processadores/Intel Core i5-12600K 3.7GHz 20Mb Cache.jpg", "estoque": 31, "price": 2872}
+{"name": "Intel Core i9-13900K 5.8GHz 36Mb Cache", "image": "./assets/img/processadores/Intel Core i9-13900K 5.8GHz 36Mb Cache.jpg", "estoque": 85, "price": 2240}
 {"name": "Alexa Echo Dot 5ª Geração Relógio Digital", "image": "./assets/img/assistentesvirtuais/Alexa Echo Dot 5ª Geração Relógio Digital.jpg", "estoque": 10, "price": 504}
-{"name": "Alexa Echo Pop Amazon Smart Speaker", "image": "./assets/img/assistentesvirtuais/Alexa Echo Pop Amazon Smart Speaker.jpg", "estoque": 1, "price": 292}
-{"name": "Alexa Echo Show 10 2ª Geração Smart Display", "image": "./assets/img/assistentesvirtuais/Alexa Echo Show 10 2ª Geração Smart Display.jpg", "estoque": 2, "price": 619}
-{"name": "Alexa Echo Show Mini 5 3ª Geração Amazon", "image": "./assets/img/assistentesvirtuais/Alexa Echo Show Mini 5 3ª Geração Amazon.jpg", "estoque": 7,"price": 581}
-{"name": "Apple Ipad 9ª Geração 64Gb Spacial Gray", "image": "./assets/img/tablets/Apple Ipad 9ª Geração 64Gb Spacial Gray.jpg", "estoque": 8, "price": 5402}
-{"name": "Samsung Galaxy S9 256GB Android 13", "image": "./assets/img/tablets/Samsung Galaxy S9 256GB Android 13.jpg", "estoque": 9, "price": 1969}
-{"name": "Samsung Galaxy Tab A9 64Gb Android 14", "image": "./assets/img/tablets/Samsung Galaxy Tab A9 64Gb Android 14.jpg", "estoque": 3, "price": 2534}
-{"name": "Samsung Glaxay Tab S6 Lite 64Gb 5G", "image": "./assets/img/tablets/Samsung Glaxay Tab S6 Lite 64Gb 5G.jpg", "estoque": 10, "price": 2721}
+{"name": "Alexa Echo Pop Amazon Smart Speaker", "image": "./assets/img/assistentesvirtuais/Alexa Echo Pop Amazon Smart Speaker.jpg", "estoque": 47, "price": 292}
+{"name": "Alexa Echo Show 10 2ª Geração Smart Display", "image": "./assets/img/assistentesvirtuais/Alexa Echo Show 10 2ª Geração Smart Display.jpg", "estoque": 22, "price": 619}
+{"name": "Alexa Echo Show Mini 5 3ª Geração Amazon", "image": "./assets/img/assistentesvirtuais/Alexa Echo Show Mini 5 3ª Geração Amazon.jpg", "estoque": 77,"price": 581}
+{"name": "Apple Ipad 9ª Geração 64Gb Spacial Gray", "image": "./assets/img/tablets/Apple Ipad 9ª Geração 64Gb Spacial Gray.jpg", "estoque": 58, "price": 5402}
+{"name": "Samsung Galaxy S9 256GB Android 13", "image": "./assets/img/tablets/Samsung Galaxy S9 256GB Android 13.jpg", "estoque": 90, "price": 1969}
+{"name": "Samsung Galaxy Tab A9 64Gb Android 14", "image": "./assets/img/tablets/Samsung Galaxy Tab A9 64Gb Android 14.jpg", "estoque": 34, "price": 2534}
+{"name": "Samsung Glaxay Tab S6 Lite 64Gb 5G", "image": "./assets/img/tablets/Samsung Glaxay Tab S6 Lite 64Gb 5G.jpg", "estoque": 100, "price": 2721}

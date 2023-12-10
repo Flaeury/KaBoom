@@ -43,6 +43,9 @@ def create_product_card(product):
     )
 
 
+file_path = "./assets/BD/checkoutBD.txt"
+
+
 def create_cards_from_file(file_path):
     cards = []
     with open(file_path, 'r', encoding="utf-8") as f:
@@ -51,9 +54,6 @@ def create_cards_from_file(file_path):
             product_dict = json.loads(line.strip())
             cards.append(create_product_card(product_dict))
     return cards
-
-
-file_path = "./assets/BD/checkoutBD.txt"
 
 
 def selected_products():

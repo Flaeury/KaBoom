@@ -36,6 +36,7 @@ def main(page: ft.Page):
                         create_app_bar_cart(page),
 
                     ],
+                    cart.selected_products()
                 )
             )
         page.update()

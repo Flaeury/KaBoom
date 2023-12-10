@@ -25,7 +25,7 @@ def addToCartBtn(e):
             "image": itemselectedimage.src,
             "name": itemselectedname.value,
             "price": itemselectedprice.value,
-            "estoque": quantidade
+            "estoque": itemselectednamestock.value
         }
 
         order_string = json.dumps(product_details)
