@@ -1,6 +1,7 @@
 from flet import *
 import flet as ft
 
+#Definir opções de pagamento
 
 def paymentOptions():
 

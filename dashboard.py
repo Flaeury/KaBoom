@@ -12,10 +12,13 @@ table = ft.DataTable(
     rows=[]
 )
 
+#Definir instância da pagina
+
 def init(p):
     global page
     page = p
 
+#Adicionar produtos ao carrinho
 
 def addToCartBtn(e):
     userOrder = []
@@ -49,6 +52,7 @@ def addToCartBtn(e):
     else:
         print("Error: Missing data in the control.")
 
+#Criar card do produto no carrinho
 
 def create_product_card(product):
     return ft.Card(
@@ -94,6 +98,7 @@ def create_product_card(product):
         )
     )
 
+#Criar grade de produtos
 
 def create_product_grid(file_path):
     gridView = ft.GridView(

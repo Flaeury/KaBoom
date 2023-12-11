@@ -22,6 +22,8 @@ class Toast:
         TODO: Implement different types. `Success`, `Info`, `Danger`
     """
 
+#Notificação na interface gráfica
+
     def __init__(
         self,
         page: Page,
@@ -47,6 +49,8 @@ class Toast:
         self.bgcolor = bgcolor
         self.auto_close = auto_close
 
+#Aparecer e desaparecer a notificação da interface gráfica
+
     def _update_visibility(self):
         self.stack.opacity = 0 if self.stack.opacity == 1 else 1
         self.page.update()
@@ -55,21 +59,31 @@ class Toast:
         if self.stack.opacity == 1:
             threading.Thread(target=self._auto_disapper, daemon=True).start()
 
+#Especificar tempo de visibilidade da notificação
+
     def _auto_disapper(self):
         self.stack.opacity = 0
         self.page.update()
+
+#Fechar a notificação
 
     def _close(self):
         self.stack.opacity = 0
         self.page.update()
 
+#Iniciar temporizador
+
     def _start_timer(self):
         pass
+
+#Estruturar notificação da pagina
 
     def struct(self):
         main_stack = Stack(expand=True)
         main_stack.controls = [self.toast_container()]
         self.page.add(main_stack)
+
+#Criar estrutura interna do componente notificação
 
     def toast_container(self):
         self.timer = 0

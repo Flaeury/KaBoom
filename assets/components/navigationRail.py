@@ -1,5 +1,6 @@
 import flet as ft
 
+#Definir barra de navegação lateral
 
 def create_navigation_rail():
     return ft.NavigationRail(

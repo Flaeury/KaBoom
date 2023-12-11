@@ -1,6 +1,6 @@
 import flet as ft
 
-
+#Pop-up de compra finalizada
 
 def popUp(page):
     def close_banner(e):
@@ -17,6 +17,8 @@ def popUp(page):
         ),
         actions=[ft.TextButton(text="FECHAR", on_click=close_banner)],
     )
+
+#Botão de finalizar compra
 
     def show_banner_click(e):
         page.banner.open = True
