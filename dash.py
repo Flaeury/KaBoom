@@ -7,6 +7,11 @@ itemselectedname = ft.Text()
 itemselectedprice = ft.Text()
 itemselectednamestock = ft.Text()
 
+table = ft.DataTable(
+    columns=['image', 'name', 'price', 'estoque'],
+    rows=[]
+)
+
 def init(p):
     global page
     page = p
@@ -15,8 +20,6 @@ def init(p):
 def addToCartBtn(e):
     userOrder = []
     quantidade = 1
-
-    # print(e.control.key)
 
     if type(e.control.key) is dict:
         itemselectedname.value = e.control.key['name']
@@ -31,11 +34,12 @@ def addToCartBtn(e):
             "estoque": itemselectednamestock.value
         }
 
-        order_string = json.dumps(product_details)
+        # Adiciona a linha na tabela de dados
+        table.rows.append([product_details['image'], product_details['name'], product_details['price'], product_details['estoque']])
 
-        with open('./assets/BD/checkoutBD.txt', 'a', encoding="utf-8") as f:
-            conteudo = f.write(f"{order_string}\n")
-        
+        # Exibe a tabela de dados
+        print(table)
+
         dlg = ft.AlertDialog(
             title=ft.Text("SUCESSO!"),
             content=ft.Text("Produto adicionado ao carrinho."),

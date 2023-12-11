@@ -1,7 +1,7 @@
 import json
 import flet as ft
 from flet import *
-
+from dash import table
 
 def create_product_card(product):
     return ft.Card(
@@ -60,18 +60,17 @@ def create_product_card(product):
     )
 
 
-file_path = "./assets/BD/checkoutBD.txt"
-
-
-def create_cards_from_file(file_path):
+def create_cards_from_table(table):
     cards = []
-    with open(file_path, 'r', encoding="utf-8") as f:
-        for line in f:
-
-            product_dict = json.loads(line.strip())
-            cards.append(create_product_card(product_dict))
+    for row in table.rows:
+        product_dict = {
+            "image": row[0],
+            "name": row[1],
+            "price": row[2],
+            "estoque": row[3]
+        }
+        cards.append(create_product_card(product_dict))
     return cards
-
 
 def selected_products():
     return ft.ListView(
@@ -79,9 +78,8 @@ def selected_products():
         spacing=10,
         padding=20,
         expand=1,
-        controls=create_cards_from_file("./assets/BD/checkoutBD.txt")
+        controls=create_cards_from_table(table)
     )
-
 
 def change_screen(page):
     return ft.FloatingActionButton(
