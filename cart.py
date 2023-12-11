@@ -39,16 +39,16 @@ def create_product_card(product):
                                 color=ft.colors.BLACK),
                         ft.Text("spacing", size=5, color="#f5f5f5"),
                         ft.ElevatedButton(
-                                text="Remover",
-                                icon="delete",
-                                width=180,
-                                height=40,
-                                icon_color="white",
-                                bgcolor="#ff6b00",
-                                color="white",
-                                on_click=removeBtn,
-                                key=product
-                            ),
+                            text="Remover",
+                            icon="delete",
+                            width=180,
+                            height=40,
+                            icon_color="white",
+                            bgcolor="#ff6b00",
+                            color="white",
+                            on_click=removeBtn,
+                            key=product,
+                        ),
                     ])
                 ),
 
@@ -62,6 +62,18 @@ def create_product_card(product):
         )
     )
 
+
+# def removeBtn(e):
+#     if type(e.control.key) is dict:
+#         name = e.control.key['name'],
+#         price = e.control.key['price'],
+#         image = e.control.key['image'],
+#         stock = e.control.key['estoque'],
+
+#         # Adiciona a linha na tabela de dados
+#         idx = table.rows.index(name)
+#         table.rows.remove(idx)
+
 def removeBtn(e):
     if type(e.control.key) is dict:
         name = e.control.key['name']
@@ -69,9 +81,10 @@ def removeBtn(e):
         image = e.control.key['image']
         stock = e.control.key['estoque']
 
-        # Adiciona a linha na tabela de dados
-        idx = table.rows.index(name)
-        table.rows.remove(idx)
+        for idx, row in enumerate(table.rows):
+            if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
+                table.rows.pop(idx)
+                break
 
 
 def create_cards_from_table(table):
@@ -86,15 +99,17 @@ def create_cards_from_table(table):
         cards.append(create_product_card(product_dict))
     return cards
 
+
 def selected_products():
     return ft.ListView(
-        #auto_scroll=True,
+        # auto_scroll=True,
         spacing=10,
         padding=20,
         expand=1,
         controls=create_cards_from_table(table)
     )
     print(table.rows)
+
 
 def change_screen(page):
     return ft.FloatingActionButton(
