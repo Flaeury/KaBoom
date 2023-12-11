@@ -8,6 +8,7 @@ import payment
 
 
 def main(page: ft.Page):
+    page.theme_mode = ft.ThemeMode.LIGHT
     dash.init(page)
     page.fonts = {
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
