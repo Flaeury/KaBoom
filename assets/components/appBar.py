@@ -1,5 +1,6 @@
 import flet as ft
 
+#Criar barra superior da pagina inicial
 
 def create_app_bar_dashboard(page):
     return ft.AppBar(
@@ -30,6 +31,7 @@ def create_app_bar_dashboard(page):
         ]
     )
 
+#Criar barra superior da pagina do carrinho
 
 def create_app_bar_cart(page):
     return ft.AppBar(
@@ -55,6 +57,7 @@ def create_app_bar_cart(page):
         # ]
     )
 
+#Criar barra superior da pagina de pagamento
 
 def create_app_bar_payment(page):
     return ft.AppBar(
