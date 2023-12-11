@@ -6,6 +6,7 @@ import os
 import cart
 import payment
 
+#Aspectos iniciais da pagina
 
 def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.LIGHT
@@ -17,6 +18,8 @@ def main(page: ft.Page):
     page.title = "KaBoom!"
     # page.window_full_screen=True
     page.theme_mode = ft.ThemeMode.DARK
+
+#Alterar visualização da pagina com base na rota
 
     def route_change(route):
         page.views.clear()
@@ -61,6 +64,8 @@ def main(page: ft.Page):
                 )
             )
         page.update()
+
+#Navegar para a visualização no topo da pilha
 
     def view_pop(view):
         page.views.pop()
