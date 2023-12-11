@@ -1,6 +1,6 @@
 {"name": "Xbox Series X + Forza Horizon 5 Premium", "image": "./assets/img/xbox/Xbox Series X + Forza Horizon 5 Premium.jpg", "estoque": 15, "price": 4600}
 {"name": "Xbox Series X 1Tb e Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 1Tb e Controle sem fio.jpg", "estoque": 25, "price": 4400}
-{"name": "Xbox Series X 512 Gb SSD + Controle sem fio", "image": "./assets/img/xbox/Xbox Series X 512 Gb SSD + Controle sem fio.jpg", "estoque": 90, "price": 4200}
+{"name": "Xbox Series S 512 Gb SSD + Controle sem fio", "image": "./assets/img/xbox/Xbox Series S 512 Gb SSD + Controle sem fio.jpg", "estoque": 90, "price": 4200}
 {"name": "Xbox Series X Diablo IV 1Tb Edição Especial", "image": "./assets/img/xbox/Xbox Series X Diablo IV 1Tb Edição Especial.jpg", "estoque": 19, "price": 4850}
 {"name": "ASUS Nvidia Rog Strix RTX 4090 24Mb Cache", "image": "./assets/img/placavideo/ASUS Nvidia Rog Strix RTX 4090 24Mb Cache.jpg", "estoque": 67, "price": 13000}
 {"name": "Geforce RTX 2060 8Gb DirectX 12", "image": "./assets/img/placavideo/Geforce RTX 2060 8Gb DirectX 12.jpg", "estoque": 40, "price": 1300}
