@@ -4,7 +4,7 @@ from flet import *
 from assets.components.appBar import create_app_bar_cart, create_app_bar_dash, create_app_bar_payment
 import os
 import cart
-import finalcheckout
+import payment
 
 
 def main(page: ft.Page):
@@ -28,6 +28,7 @@ def main(page: ft.Page):
                     dash.create_product_grid("./assets/BD/products.txt"),
                 ],
             )
+
         )
         if page.route == "/cart":
             page.views.append(
@@ -42,7 +43,7 @@ def main(page: ft.Page):
                 )
             )
         elif page.route == "/payment":
-            mensage, options = finalcheckout.checkout()
+            mensage, options = payment.checkout()
             page.views.append(
                 ft.View(
                     "/cart",
