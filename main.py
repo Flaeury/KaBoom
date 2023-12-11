@@ -39,11 +39,11 @@ def main(page: ft.Page):
                     "/cart",
                     [   # AppBar do carrinho
                         create_app_bar_cart(page),
-                         cart.selected_products(),
+                        cart.selected_products(),
                         cart.change_screen(page),
                     ],
-                 cart.removeBtn(), 
-                 cart.redirect_to_cart(page)
+               
+             
                     
                 )
             )
