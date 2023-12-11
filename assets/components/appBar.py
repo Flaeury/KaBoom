@@ -1,7 +1,7 @@
 import flet as ft
 
 
-def create_app_bar_dash(page):
+def create_app_bar_dashboard(page):
     return ft.AppBar(
 
         title=ft.Text(

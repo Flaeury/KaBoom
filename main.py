@@ -1,7 +1,7 @@
 import flet as ft
-import dash
+import dashboard
 from flet import *
-from assets.components.appBar import create_app_bar_cart, create_app_bar_dash, create_app_bar_payment
+from assets.components.appBar import create_app_bar_cart, create_app_bar_dashboard, create_app_bar_payment
 import os
 import cart
 import payment
@@ -9,7 +9,7 @@ import payment
 
 def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.LIGHT
-    dash.init(page)
+    dashboard.init(page)
     page.fonts = {
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
@@ -24,23 +24,27 @@ def main(page: ft.Page):
             ft.View(
                 "/",
                 [
-                    create_app_bar_dash(page),
+                    create_app_bar_dashboard(page),
 
-                    dash.create_product_grid("./assets/BD/products.txt"),
+                    dashboard.create_product_grid("./assets/BD/products.txt"),
                 ],
             )
 
         )
         if page.route == "/cart":
+          
             page.views.append(
+                # Aqui é onde ela deve aparecer 
                 ft.View(
                     "/cart",
                     [   # AppBar do carrinho
                         create_app_bar_cart(page),
-
+                         cart.selected_products(),
+                        cart.change_screen(page),
                     ],
-                    cart.selected_products(),
-                    cart.change_screen(page),
+                 cart.removeBtn(), 
+                 cart.redirect_to_cart(page)
+                    
                 )
             )
         elif page.route == "/payment":
@@ -48,7 +52,9 @@ def main(page: ft.Page):
             page.views.append(
                 ft.View(
                     "/cart",
-                    [create_app_bar_payment(page)],
+                    [
+                        create_app_bar_payment(page)
+                    ],
 
                     mensage,
                     options,

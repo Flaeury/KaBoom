@@ -1,7 +1,7 @@
 import json
 import flet as ft
 from flet import *
-from dash import table
+from dashboard import table
 
 
 def create_product_card(product):
