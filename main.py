@@ -4,6 +4,7 @@ from flet import *
 from assets.components.appBar import create_app_bar_cart, create_app_bar_dash, create_app_bar_payment
 import os
 import cart
+from assets.components.paymentOptions import paymentOptions
 
 def main(page: ft.Page):
     dash.init(page)
@@ -45,9 +46,9 @@ def main(page: ft.Page):
                     "/cart",
                     [   # AppBar do carrinho
                         create_app_bar_payment(page),
-
+                        Text("Pagar")
                     ],
-                    Text("Pagar")
+                    
                 )
             )
         page.update()

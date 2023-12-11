@@ -37,8 +37,6 @@ def addToCartBtn(e):
         # Adiciona a linha na tabela de dados
         table.rows.append([product_details['image'], product_details['name'], product_details['price'], product_details['estoque']])
 
-        # Exibe a tabela de dados
-        print(table)
 
         dlg = ft.AlertDialog(
             title=ft.Text("SUCESSO!"),
