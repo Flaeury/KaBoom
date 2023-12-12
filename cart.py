@@ -132,7 +132,7 @@ def atualizar(table):
 def show_value(table):
     return ft.ListView(
         spacing=1,
-        padding=1,
+        padding=20,
         expand=0,
         ref=components['compra'],
         controls=atualizar(table)
@@ -140,12 +140,18 @@ def show_value(table):
 
 
 def change_screen(page):
+    if table.rows:
+        return ft.FloatingActionButton(
+            content=ft.Row(
+                [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")],
+                alignment="center",
+                spacing=5
+            ),
+            bgcolor="#0c4b85",
+            shape=ft.RoundedRectangleBorder(radius=5),
+            width=190,
+            on_click=lambda _: page.go("/payment")
+        )
+    else:
 
-    return ft.FloatingActionButton(
-        content=ft.Row(
-            [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")], alignment="center", spacing=5),
-        bgcolor="#0c4b85",
-        shape=ft.RoundedRectangleBorder(radius=5),
-        width=190,
-        on_click=lambda _: page.go("/payment")
-    )
+        return ft.Container()
