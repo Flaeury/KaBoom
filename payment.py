@@ -71,7 +71,6 @@ def paymentOptions(page):  # Pass the page object as an argument
     return mensage, options
 
 
-
 def create_creditCard():
     # Inserir dados do cartão
     name = ft.TextField(
@@ -144,10 +143,9 @@ def create_creditCard():
             # Exiba uma mensagem de erro
             mensage.controls.clear()
             mensage.controls.append(create_creditCard())
-            mensage.controls.append(ft.Text(value=error_text, color='red', size=15, text_align=ft.TextAlign.CENTER))
+            mensage.controls.append(
+                ft.Text(value=error_text, color='red', size=15, text_align=ft.TextAlign.CENTER))
             mensage.update()
-    
-
 
     return ft.Card(
         content=ft.Container(
@@ -159,25 +157,27 @@ def create_creditCard():
             border_radius=ft.border_radius.only(
                 top_left=7, top_right=7, bottom_left=7, bottom_right=7,),
             content=ft.Container(
-                ft.Column( # Dados Cartão
-                    [   cardNumber,
+                ft.Column(  # Dados Cartão
+                    [cardNumber,
                         name,
-                        ft.Row([    
+                        ft.Row([
                             cvv,
                             valDate
                         ], alignment='left'),
                         ft.FloatingActionButton(
-                            content=ft.Row(
-                                [ft.Icon(ft.icons.CREDIT_CARD), ft.Text("VALIDAR\nCARTÃO")], alignment="center", spacing=5),
+                            content=ft.Row([ft.Icon(ft.icons.CREDIT_CARD), ft.Text(
+                                "VALIDAR CARTÃO", size=15)], alignment="center", spacing=10),
                             bgcolor="#0c4b85",
                             shape=ft.RoundedRectangleBorder(radius=5),
-                            width=100,
+                            width=200,
+                            height=45,
                             on_click=validate_card
                         )
-                    ])
+                     ])
             )
         )
     )
+
 
 def validate_credit_card(card_number, card_name, cvv, date):
     # Verificar se todos os campos estão preenchidos
@@ -195,7 +195,7 @@ def validate_credit_card(card_number, card_name, cvv, date):
     # Verificar o formato da data de validade
     if not re.match(r'^\d{4}$', date):
         return False, '   Data de validade inválida.'
-    
+
     # Verificar o nome do titular
     if not re.match(r'^[\s\w]+$', card_name):
         return False, '   Nome do titular deve conter somente letras.'
@@ -217,6 +217,8 @@ def change_screen_pix(page):
     )
 
 # Rota para pagamento com Cartão
+
+
 def change_screen_creditCard(page):
     return ft.FloatingActionButton(
         content=ft.Row(
