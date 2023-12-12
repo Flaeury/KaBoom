@@ -7,7 +7,7 @@ import dashboard
 
 components = {
     'list': ft.Ref[ft.ListView](),
-    # add todos os compontens da tela aqui
+    'compra': ft.Ref[ft.ListView](),
 }
 
 
@@ -69,25 +69,8 @@ def create_product_card(product):
         )
     )
 
-# Remover produto
-
-
-def removeBtn(e):
-    if type(e.control.key) is dict:
-        name = e.control.key['name']
-        price = e.control.key['price']
-        image = e.control.key['image']
-        stock = e.control.key['estoque']
-
-        for idx, row in enumerate(table.rows):
-            if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
-                table.rows.pop(idx)
-                break
-    components['list'].current.controls = create_cards_from_table(table)
-    dashboard.page.update()
 
 # Exibir produtos em lista na interface grafica
-
 
 def create_cards_from_table(table):
     cards = []
@@ -114,16 +97,60 @@ def selected_products(table):
         controls=create_cards_from_table(table)
     )
 
+# Remover produto
 
-# Botão para tela de finalização da compra
+
+def removeBtn(e):
+    if type(e.control.key) is dict:
+        name = e.control.key['name']
+        price = e.control.key['price']
+        image = e.control.key['image']
+        stock = e.control.key['estoque']
+
+        for idx, row in enumerate(table.rows):
+            if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
+                table.rows.pop(idx)
+                break
+
+        components['list'].current.controls = create_cards_from_table(table)
+        components['compra'].current.controls = [show_value(table)]
+        dashboard.page.update()
+        components['compra'].current.controls = [show_value(table)]
+
+
+def valor_total(table):
+    totalCompra = 0
+    for row in table.rows:
+        product_dict = {
+            "price": row[2],
+        }
+        totalCompra += int(product_dict["price"])
+
+    return totalCompra
+
+
+def show_value(table):
+    total_value = valor_total(table)
+    return ft.UserControl(
+        # spacing=1,
+        # padding=1,
+        # expand=1,
+        ref=components['compra'],
+        controls=[
+            ft.Text(f"Total: R$ {total_value}",
+                    size=17,
+                    weight=ft.FontWeight.BOLD),
+        ]
+
+    )
 
 
 def change_screen(page):
+
     return ft.FloatingActionButton(
         content=ft.Row(
             [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")], alignment="center", spacing=5),
         bgcolor="#0c4b85",
-
         shape=ft.RoundedRectangleBorder(radius=5),
         width=190,
         on_click=lambda _: page.go("/payment")
