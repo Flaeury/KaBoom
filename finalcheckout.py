@@ -31,76 +31,80 @@ random_pix_key = generate_random_key(20)  # Ajuste o comprimento conforme necess
 qr_code_file_path = "qr_code.png"
 
 generate_qr_code(random_pix_key, qr_code_file_path)
-print(f"Chave PIX Aleatória: {random_pix_key}")
-print(f"QR Code salvo em: {qr_code_file_path}")
 
-# Página final
+# Página final 1
 def checkoutCreditCard():
     return ft.Card(
             elevation=10,
-            content=ft.Container(
+            content=ft.Container( # Container maior
+                bgcolor="#C9C9CA",
+                width=600,
+                height=200,
+                border_radius=ft.border_radius.only(
+                    top_left=7, top_right=7, bottom_left=7, bottom_right=7,
+                ),
+                content=ft.Row([
+                    ft.Container( # Container menor para ajudar a alinar tudo
+                        padding=10,
+                        width=450,
+                        height=190,
+                        bgcolor="#C9C9CA",
+                        content=ft.Row([
+                            # Insere o icone de check
+                            ft.Icon(ft.icons.CHECK_CIRCLE, color='#29B207', size=40),
+                            # Insere a mensagem
+                            ft.Text(value="SUA COMPRA FOI FINALIZADA.\nFICAMOS MUITO FELIZES EM TER VOCÊ AQUI!\nVOLTE SEMPRE!",
+                                    size=18,
+                                    color=ft.colors.BLACK,
+                                    weight=ft.FontWeight.BOLD,
+                                    text_align=ft.TextAlign.START)
+                        ])
+                    ),
+                ],alignment=ft.MainAxisAlignment.CENTER)
+            )
+    )
+
+# Página final 2
+def checkoutPix():
+    return ft.Card(
+        elevation=10,
+        content=ft.Container( # Container maior
             bgcolor="#f5f5f5",
-            width=450,
-            height=190,
+            width=600,
+            height=400,
             border_radius=ft.border_radius.only(
                 top_left=7, top_right=7, bottom_left=7, bottom_right=7,
             ),
-            content=ft.Row([
-                ft.Container(
+            content=ft.Column([
+                ft.Row([
+                    # Insere o icone de check
+                    ft.Icon(ft.icons.CHECK_CIRCLE, color='#C6920E', size=40), 
+                    # Insere a mensagem
+                    ft.Text(value='SUA COMPRA FOI RESERVADA.\nEFETUE O PAGEMENTO PARA GARANTÍ-LA!', 
+                        size=18,
+                        color=ft.colors.BLACK,
+                        weight=ft.FontWeight.BOLD,
+                        text_align=ft.TextAlign.START),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER),
+
+                ft.Container( # Container menor para ajudar a alinar tudo
                     padding=10,
                     width=450,
-
                     height=190,
                     bgcolor="#f5f5f5",
 
                     content=ft.Column([
-
-                        ft.Text(
+                        ft.Image(src='qr_code.png', # Insere o QR Code do pix
+                         width=150,
+                         height=150),
+                        ft.Text(value=random_pix_key, # Insere a chave pix
                                 size=18,
                                 color=ft.colors.BLACK,
-                                weight=ft.FontWeight.BOLD),
-                        ft.Text(f"R$ ",
-                                size=17,
-                                color=ft.colors.BLACK, weight="bold"),
-                        ft.Text(f"Estoque: ",
-                                size=17,
-                                color=ft.colors.BLACK),
-                        ft.Text("spacing", size=5, color="#f5f5f5"),
-                        ft.ElevatedButton(
-                            text="Remover",
-                            icon="delete",
-                            width=180,
-                            height=40,
-                            icon_color="white",
-                            bgcolor="#ff6b00",
-                            color="white",
-                        ),
-                    ])
+                                weight=ft.FontWeight.BOLD)
+                    ], alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER)
                 ),
-
-                ft.Container(
-                    padding=50,
-                    content=ft.Column([
-
-                    ])
-                )
-            ])
+            ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
         )
-    )
-
-def checkoutPix():
-    return ft.ListView(
-        spacing=10,
-        padding=20,
-        expand=1,
-        controls=[
-            ft.Card(
-
-            ),
-            ft.Text(
-            value="SUA COMPRA FOI FINALIZADA.\nOBRIGADO POR ESCOLHER NOSSA LOJA!",
-            weight='Bold',
-            size=25,
-            color='#FFFFFF',
-            text_align=ft.TextAlign.CENTER)]
     )

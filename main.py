@@ -5,21 +5,21 @@ from assets.components.appBar import create_app_bar_cart, create_app_bar_dashboa
 import os
 import cart
 import payment
-from finalcheckout import checkoutCreditCard
+from finalcheckout import checkoutCreditCard, checkoutPix
 
 # Aspectos iniciais da pagina
 
 
 def main(page: ft.Page):
-    page.theme_mode = ft.ThemeMode.LIGHT
-    dashboard.init(page)
+    dashboard.init(page) # Para tornar o page usável em outras abas
+    page.title = "KaBoom!"
+    page.theme_mode = ft.ThemeMode.DARK
     page.fonts = {
         'BungeeSpice': 'fonts/BungeeSpice-Regular.ttf',
     }
     page.padding = 50
-    page.title = "KaBoom!"
+    
     # page.window_full_screen=True
-    page.theme_mode = ft.ThemeMode.DARK
 
 # Alterar visualização da pagina com base na rota
 
@@ -29,9 +29,9 @@ def main(page: ft.Page):
             ft.View(
                 route="/",
                 controls=[
-                    create_app_bar_dashboard(page),
+                    create_app_bar_dashboard(page), # AppBar dashboard
 
-                    dashboard.create_product_grid("./assets/BD/products.txt"),
+                    dashboard.create_product_grid("./assets/BD/products.txt"), # Cria a dashboard com os produtos
                 ],
             )
 
@@ -44,8 +44,8 @@ def main(page: ft.Page):
                     route="/cart",
                     controls=[   # AppBar do carrinho
                         create_app_bar_cart(page),
-                        cart.selected_products(dashboard.table),
-                        cart.change_screen(page),
+                        cart.selected_products(dashboard.table), # Gerar cards do carrinho
+                        cart.change_screen(page), # Botão para ir para o pagamento
                     ],
 
                 )
@@ -55,9 +55,9 @@ def main(page: ft.Page):
             page.views.append(
                 ft.View(
                     route="/payment",
-                    controls=[
+                    controls=[ # AppBar da aba de pagamentos
                         create_app_bar_payment(page),
-                        options,
+                        options, # Opções de pagamento
                         mensage
                     ],
 
@@ -67,8 +67,9 @@ def main(page: ft.Page):
             page.views.append(
                 ft.View(
                     route="/finalcheckoutPIX",
-                    controls=[
-                        create_app_bar_finalcheckout(page)
+                    controls=[ # AppBar da aba final
+                        create_app_bar_finalcheckout(page),
+                        checkoutPix() #Tela final opcao 1
                     ],
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER
@@ -78,9 +79,9 @@ def main(page: ft.Page):
             page.views.append(
                 ft.View(
                     route="/finalcheckoutCREDITCARD",
-                    controls=[
+                    controls=[ # AppBar da aba final
                         create_app_bar_finalcheckout(page),
-                        checkoutCreditCard()
+                        checkoutCreditCard() #Tela final opcao 2
                     ],
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER
