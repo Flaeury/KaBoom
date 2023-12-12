@@ -140,7 +140,7 @@ def show_value(table):
 
 
 def change_screen(page):
-    if table.rows:
+    if dashboard.table.rows:
         return ft.FloatingActionButton(
             content=ft.Row(
                 [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")],

@@ -106,7 +106,6 @@ def checkoutPix():
                     width=450,
                     height=190,
                     bgcolor="#f5f5f5",
-
                     content=ft.Column([
                         ft.Image(src='qr_code.png',  # Insere o QR Code do pix
                                  width=150,

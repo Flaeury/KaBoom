@@ -20,9 +20,6 @@ def init(p):
 #Adicionar produtos ao carrinho
 
 def addToCartBtn(e):
-    userOrder = []
-    quantidade = 1
-
     if type(e.control.key) is dict:
         itemselectedname.value = e.control.key['name']
         itemselectedprice.value = e.control.key['price']
