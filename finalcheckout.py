@@ -1,7 +1,5 @@
 import flet as ft
-import random
-import string
-import qrcode
+import random, string, qrcode
 
 #Gerador de chave PIX aleatória
 

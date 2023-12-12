@@ -1,6 +1,5 @@
 import json
 import flet as ft
-from flet import *
 
 itemselectedimage = ft.Image(width=100, height=50)
 itemselectedname = ft.Text()
@@ -126,7 +125,6 @@ def create_product_grid(file_path):
     correcaoTela2 = ft.Container(bgcolor='gray', height=1)
     gridView.controls.append(correcaoTela)
     gridView.controls.append(correcaoTela2)
-
 
     return gridView
 

@@ -1,7 +1,4 @@
-import json
 import flet as ft
-from flet import *
-from dashboard import table
 import dashboard
 # Card de informação dos produtos
 
@@ -71,7 +68,6 @@ def create_product_card(product):
 
 # Remover produto
 
-
 def removeBtn(e):
     if type(e.control.key) is dict:
         name = e.control.key['name']
@@ -79,15 +75,15 @@ def removeBtn(e):
         image = e.control.key['image']
         stock = e.control.key['estoque']
 
-        for idx, row in enumerate(table.rows):
+        for idx, row in enumerate(dashboard.table.rows):
             if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
-                table.rows.pop(idx)
+                dashboard.table.rows.pop(idx)
                 break
-    components['list'].current.controls = create_cards_from_table(table)
+    components['list'].current.controls = create_cards_from_table(dashboard.table)
     dashboard.page.update()
 
-# Exibir produtos em lista na interface grafica
 
+# Exibir produtos em lista na interface grafica
 
 def create_cards_from_table(table):
     cards = []
@@ -101,8 +97,8 @@ def create_cards_from_table(table):
         cards.append(create_product_card(product_dict))
     return cards
 
-# Lista os cards criados
 
+# Lista os cards criados
 
 def selected_products(table):
     return ft.ListView(
@@ -115,8 +111,7 @@ def selected_products(table):
     )
 
 
-# Botão para tela de finalização da compra
-
+# Botão para tela de pagamento
 
 def change_screen(page):
     return ft.FloatingActionButton(
