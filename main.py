@@ -6,7 +6,8 @@ import os
 import cart
 import payment
 
-#Aspectos iniciais da pagina
+# Aspectos iniciais da pagina
+
 
 def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.LIGHT
@@ -19,7 +20,7 @@ def main(page: ft.Page):
     # page.window_full_screen=True
     page.theme_mode = ft.ThemeMode.DARK
 
-#Alterar visualização da pagina com base na rota
+# Alterar visualização da pagina com base na rota
 
     def route_change(route):
         page.views.clear()
@@ -35,9 +36,9 @@ def main(page: ft.Page):
 
         )
         if page.route == "/cart":
-          
+
             page.views.append(
-                # Aqui é onde ela deve aparecer 
+                # Aqui é onde ela deve aparecer
                 ft.View(
                     "/cart",
                     [   # AppBar do carrinho
@@ -49,7 +50,7 @@ def main(page: ft.Page):
                 )
             )
         elif page.route == "/payment":
-            mensage, options = payment.paymentOptions()
+            mensage, options = payment.paymentOptions(page)
             page.views.append(
                 ft.View(
                     "/cart",
@@ -62,7 +63,7 @@ def main(page: ft.Page):
             )
         page.update()
 
-#Navegar para a visualização no topo da pilha
+# Navegar para a visualização no topo da pilha
 
     def view_pop(view):
         page.views.pop()

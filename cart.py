@@ -3,7 +3,8 @@ import flet as ft
 from flet import *
 from dashboard import table
 
-#Card de informação dos produtos
+# Card de informação dos produtos
+
 
 def create_product_card(product):
     return ft.Card(
@@ -63,7 +64,8 @@ def create_product_card(product):
         )
     )
 
-#Remover produto
+# Remover produto
+
 
 def removeBtn(e):
     if type(e.control.key) is dict:
@@ -77,7 +79,8 @@ def removeBtn(e):
                 table.rows.pop(idx)
                 break
 
-#Exibir produtos em lista na interface grafica
+# Exibir produtos em lista na interface grafica
+
 
 def create_cards_from_table(table):
     cards = []
@@ -91,7 +94,8 @@ def create_cards_from_table(table):
         cards.append(create_product_card(product_dict))
     return cards
 
-#Lista os cards criados
+# Lista os cards criados
+
 
 def selected_products():
     return ft.ListView(
@@ -103,7 +107,8 @@ def selected_products():
     )
     print(table.rows)
 
-#Botão para tela de finalização da compra
+# Botão para tela de finalização da compra
+
 
 def change_screen(page):
     return ft.FloatingActionButton(
