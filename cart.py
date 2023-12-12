@@ -133,12 +133,12 @@ def show_value(table):
     total_value = valor_total(table)
     return ft.ListView(
         spacing=1,
-        padding=1,
+        padding=20,
         expand=0,
         ref=components['compra'],
         controls=[
             ft.Text(f"Total: R$ {total_value}",
-                    size=17,
+                    size=18,
                     weight=ft.FontWeight.BOLD),
         ]
 
