@@ -2,6 +2,8 @@ import flet as ft
 import random
 import string
 import qrcode
+import dashboard
+import cart
 
 # Gerador de chave PIX aleatória
 
@@ -40,6 +42,7 @@ generate_qr_code(random_pix_key, qr_code_file_path)
 
 
 def checkoutCreditCard():
+    cleanCart()
     return ft.Card(
         elevation=10,
         content=ft.Container(  # Container maior
@@ -75,6 +78,7 @@ def checkoutCreditCard():
 
 
 def checkoutPix():
+    cleanCart()
     return ft.Card(
         elevation=10,
         content=ft.Container(  # Container maior
@@ -89,7 +93,7 @@ def checkoutPix():
                     # Insere o icone de check
                     ft.Icon(ft.icons.CHECK_CIRCLE, color='#C6920E', size=40),
                     # Insere a mensagem
-                    ft.Text(value='SUA COMPRA FOI RESERVADA.\nEFETUE O PAGEMENTO PARA LIBERARMOS!',
+                    ft.Text(value='SUA COMPRA FOI RESERVADA.\nEFETUE O PAGEMENTO PARA GARANTÍ-LA!',
                             size=18,
                             color=ft.colors.BLACK,
                             weight=ft.FontWeight.BOLD,
@@ -117,3 +121,10 @@ def checkoutPix():
             ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
         )
     )
+
+
+def cleanCart():
+    dashboard.table.rows.clear()
+    cart.components['list'].current.controls = cart.create_cards_from_table(
+        dashboard.table)
+    dashboard.page.update()

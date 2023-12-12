@@ -131,10 +131,10 @@ def valor_total(table):
 
 def show_value(table):
     total_value = valor_total(table)
-    return ft.UserControl(
-        # spacing=1,
-        # padding=1,
-        # expand=1,
+    return ft.ListView(
+        spacing=1,
+        padding=1,
+        expand=0,
         ref=components['compra'],
         controls=[
             ft.Text(f"Total: R$ {total_value}",

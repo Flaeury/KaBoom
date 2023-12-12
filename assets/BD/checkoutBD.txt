@@ -1,2 +1,0 @@
-{"image": "./assets/img/xbox/Xbox Series X 1Tb e Controle sem fio.jpg", "name": "Xbox Series X 1Tb e Controle sem fio", "price": 4400, "estoque": 25}
-{"image": "./assets/img/placavideo/Nvidia Geforce RTX 4060 Galax.jpg", "name": "Nvidia Geforce RTX 4060 Galax", "price": 2100, "estoque": 38}
