@@ -1,5 +1,6 @@
 from flet import *
 import flet as ft
+import re
 import dashboard
 
 # Definir opções de pagamento
@@ -28,14 +29,7 @@ def paymentOptions(page):  # Pass the page object as an argument
         # Se escolher cartão
         if e.control.value == "CARTÃO DE CRÉDITO":  # Fix the label to match the radio value
             mensage.controls.clear()
-
-            endButton = ft.Column([
-                ft.Container(bgcolor='gray'),
-                change_screen_creditCard(page)  # Pass the page object
-            ])
-
             mensage.controls.append(create_creditCard())
-            mensage.controls.append(endButton)
             mensage.update()
 
     options = ft.RadioGroup(
@@ -71,12 +65,15 @@ def paymentOptions(page):  # Pass the page object as an argument
         ]),
         on_change=radiogroup_changed
     )
+    global mensage
     mensage = ft.Column(width=470)
 
     return mensage, options
 
 
+
 def create_creditCard():
+    # Inserir dados do cartão
     name = ft.TextField(
         width=410,  # Ajuste da largura
         label='Nome do Titular',
@@ -129,6 +126,29 @@ def create_creditCard():
         bgcolor="#FFFFFF",
         input_filter=ft.InputFilter(allow=True, regex_string="[0-9]"),
     )
+
+    def validate_card(e):
+        card_number_value = cardNumber.value
+        card_holder_name_value = name.value
+        cvv_value = cvv.value
+        expiration_date_value = valDate.value
+
+        is_valid, error_text = validate_credit_card(
+            card_number_value, card_holder_name_value, cvv_value, expiration_date_value)
+
+        if is_valid:
+            # Adiciona o botão para finalizar o pagamente se o cartão for válido
+            mensage.controls.append(change_screen_creditCard(dashboard.page))
+            mensage.update()
+        else:
+            # Exiba uma mensagem de erro
+            mensage.controls.clear()
+            mensage.controls.append(create_creditCard())
+            mensage.controls.append(ft.Text(value=error_text, color='red', size=15, text_align=ft.TextAlign.CENTER))
+            mensage.update()
+    
+
+
     return ft.Card(
         content=ft.Container(
             padding=padding.only(43, 30, 43, 18),
@@ -139,20 +159,52 @@ def create_creditCard():
             border_radius=ft.border_radius.only(
                 top_left=7, top_right=7, bottom_left=7, bottom_right=7,),
             content=ft.Container(
-                ft.Column(
-                    [  # dadosCartao,
-                        cardNumber,
+                ft.Column( # Dados Cartão
+                    [   cardNumber,
                         name,
-                        ft.Row([
+                        ft.Row([    
                             cvv,
                             valDate
-                        ], alignment='left')
+                        ], alignment='left'),
+                        ft.FloatingActionButton(
+                            content=ft.Row(
+                                [ft.Icon(ft.icons.CREDIT_CARD), ft.Text("VALIDAR\nCARTÃO")], alignment="center", spacing=5),
+                            bgcolor="#0c4b85",
+                            shape=ft.RoundedRectangleBorder(radius=5),
+                            width=100,
+                            on_click=validate_card
+                        )
                     ])
             )
         )
     )
 
+def validate_credit_card(card_number, card_name, cvv, date):
+    # Verificar se todos os campos estão preenchidos
+    if not card_number or not card_name or not cvv or not date:
+        return False, '   Todos os campos do cartão são obrigatórios.'
 
+    # Verificar o formato do número do cartão
+    if not re.match(r'^\d{16}$', card_number):
+        return False, '   Número do cartão inválido.'
+
+    # Verificar o formato do CVV
+    if not re.match(r'^\d{3}$', cvv):
+        return False, '   CVV inválido.'
+
+    # Verificar o formato da data de validade
+    if not re.match(r'^\d{4}$', date):
+        return False, '   Data de validade inválida.'
+    
+    # Verificar o nome do titular
+    if not re.match(r'^[\w]+$', card_name):
+        return False, '   Nome do titular deve conter somente letras.'
+
+    # Se todas as verificações passarem, o cartão é considerado válido
+    return True, "   Cartão válido."
+
+
+# Rota para pagamento via PIX
 def change_screen_pix(page):
     return ft.FloatingActionButton(
         content=ft.Row(
@@ -164,7 +216,7 @@ def change_screen_pix(page):
         on_click=lambda _: page.go("/finalcheckoutPIX")
     )
 
-
+# Rota para pagamento com Cartão
 def change_screen_creditCard(page):
     return ft.FloatingActionButton(
         content=ft.Row(
