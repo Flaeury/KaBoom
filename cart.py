@@ -105,7 +105,7 @@ def selected_products():
         expand=1,
         controls=create_cards_from_table(table)
     )
-    print(table.rows)
+
 
 # Botão para tela de finalização da compra
 

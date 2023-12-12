@@ -161,7 +161,7 @@ def change_screen_pix(page):
 
         shape=ft.RoundedRectangleBorder(radius=5),
         width=260,
-        on_click=lambda _: page.go("/")
+        on_click=lambda _: page.go("/finalcheckoutPIX")
     )
 
 
@@ -173,5 +173,5 @@ def change_screen_creditCard(page):
 
         shape=ft.RoundedRectangleBorder(radius=5),
         width=280,
-        on_click=lambda _: page.go("/")
+        on_click=lambda _: page.go("/finalcheckoutCREDITCARD")
     )

@@ -1,10 +1,11 @@
 import flet as ft
 import dashboard
 from flet import *
-from assets.components.appBar import create_app_bar_cart, create_app_bar_dashboard, create_app_bar_payment
+from assets.components.appBar import create_app_bar_cart, create_app_bar_dashboard, create_app_bar_payment, create_app_bar_finalcheckout
 import os
 import cart
 import payment
+from finalcheckout import checkoutCreditCard
 
 # Aspectos iniciais da pagina
 
@@ -26,8 +27,8 @@ def main(page: ft.Page):
         page.views.clear()
         page.views.append(
             ft.View(
-                "/",
-                [
+                route="/",
+                controls=[
                     create_app_bar_dashboard(page),
 
                     dashboard.create_product_grid("./assets/BD/products.txt"),
@@ -40,8 +41,8 @@ def main(page: ft.Page):
             page.views.append(
                 # Aqui é onde ela deve aparecer
                 ft.View(
-                    "/cart",
-                    [   # AppBar do carrinho
+                    route="/cart",
+                    controls=[   # AppBar do carrinho
                         create_app_bar_cart(page),
                         cart.selected_products(),
                         cart.change_screen(page),
@@ -53,12 +54,36 @@ def main(page: ft.Page):
             mensage, options = payment.paymentOptions(page)
             page.views.append(
                 ft.View(
-                    "/cart",
-                    [
-                        create_app_bar_payment(page)
+                    route="/payment",
+                    controls=[
+                        create_app_bar_payment(page),
+                        options,
+                        mensage
                     ],
-                    options,
-                    mensage
+                    
+                )
+            )
+        elif page.route == "/finalcheckoutPIX":
+            page.views.append(
+                ft.View(
+                    route="/finalcheckoutPIX",
+                    controls=[
+                        create_app_bar_finalcheckout(page)
+                    ],
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER
+                )
+            )
+        elif page.route == "/finalcheckoutCREDITCARD":
+            page.views.append(
+                ft.View(
+                    route="/finalcheckoutCREDITCARD",
+                    controls=[
+                        create_app_bar_finalcheckout(page),
+                        checkoutCreditCard()
+                    ],
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER
                 )
             )
         page.update()
