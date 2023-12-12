@@ -41,6 +41,7 @@ def paymentOptions(page):  # Pass the page object as an argument
     options = ft.RadioGroup(
         content=ft.Column([
             ft.Container(
+                padding=15,
                 bgcolor="#7D7D7D",
                 border_radius=ft.border_radius.only(
                     top_left=7, top_right=7, bottom_left=7, bottom_right=7,
@@ -54,6 +55,7 @@ def paymentOptions(page):  # Pass the page object as an argument
                 ]),
             ),
             ft.Container(
+                padding=15,
                 bgcolor="#7D7D7D",
                 border_radius=ft.border_radius.only(
                     top_left=10, top_right=10, bottom_left=5, bottom_right=5,
