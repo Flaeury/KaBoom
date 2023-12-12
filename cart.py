@@ -1,7 +1,4 @@
-import json
 import flet as ft
-from flet import *
-from dashboard import table
 import dashboard
 # Card de informação dos produtos
 
@@ -107,15 +104,14 @@ def removeBtn(e):
         image = e.control.key['image']
         stock = e.control.key['estoque']
 
-        for idx, row in enumerate(table.rows):
-            if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
-                table.rows.pop(idx)
+        for idx, row in enumerate(dashboard.table.rows):
+            if row[0] == image and row[1] == name and row[2] == price and  row[3] == stock:
+                dashboard.table.rows.pop(idx)
                 break
 
-        components['list'].current.controls = create_cards_from_table(table)
-        components['compra'].current.controls = [show_value(table)]
+        components['list'].current.controls = create_cards_from_table(dashboard.table)
+        components['compra'].current.controls = atualizar(dashboard.table)
         dashboard.page.update()
-        components['compra'].current.controls = [show_value(table)]
 
 
 def valor_total(table):
@@ -125,23 +121,21 @@ def valor_total(table):
             "price": row[2],
         }
         totalCompra += int(product_dict["price"])
-
     return totalCompra
 
+def atualizar(table):
+    total_value = valor_total(table)
+    return [ft.Text(f"Total: R$ {total_value}",
+                    size=17,
+                    weight=ft.FontWeight.BOLD)]
 
 def show_value(table):
-    total_value = valor_total(table)
     return ft.ListView(
         spacing=1,
         padding=1,
         expand=0,
         ref=components['compra'],
-        controls=[
-            ft.Text(f"Total: R$ {total_value}",
-                    size=17,
-                    weight=ft.FontWeight.BOLD),
-        ]
-
+        controls=atualizar(table)
     )
 
 

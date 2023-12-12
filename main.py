@@ -26,8 +26,8 @@ def main(page: ft.Page):
             ft.View(
                 route="/",
                 controls=[
-                    appbar.create_app_bar_dashboard(page),  # AppBar dashboard
-
+                    # AppBar dashboard
+                    appbar.create_app_bar_dashboard(page),  
                     # Cria a dashboard com os produtos
                     dashboard.create_product_grid("./assets/BD/products.txt"),
                 ],
@@ -44,6 +44,7 @@ def main(page: ft.Page):
                         appbar.create_app_bar_cart(page),
                         # Gerar cards do carrinho
                         cart.selected_products(dashboard.table),
+                        
                         cart.show_value(dashboard.table),
                         # Botão para ir para o pagamento
                         cart.change_screen(page),
@@ -59,7 +60,7 @@ def main(page: ft.Page):
                     controls=[  # AppBar da aba de pagamentos
                         appbar.create_app_bar_payment(page),
                         options,  # Opções de pagamento
-                        mensage
+                        mensage   # Mensage de acordo com a opção escolhida
                     ],
 
                 )
@@ -70,7 +71,7 @@ def main(page: ft.Page):
                     route="/finalcheckoutPIX",
                     controls=[  # AppBar da aba final
                         appbar.create_app_bar_finalcheckout(page),
-                        finalcheckout.checkoutPix()  # Tela final opcao 1
+                        finalcheckout.checkoutPix()  # Tela final opção 1
                     ],
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER
@@ -82,7 +83,7 @@ def main(page: ft.Page):
                     route="/finalcheckoutCREDITCARD",
                     controls=[  # AppBar da aba final
                         appbar.create_app_bar_finalcheckout(page),
-                        finalcheckout.checkoutCreditCard()  # Tela final opcao 2
+                        finalcheckout.checkoutCreditCard()  # Tela final opção 2
                     ],
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER

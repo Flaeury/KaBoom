@@ -1,10 +1,8 @@
-from flet import *
-import flet as ft
 import re
+import flet as ft
 import dashboard
 
 # Definir opções de pagamento
-
 
 def paymentOptions(page):  # Pass the page object as an argument
 
@@ -146,12 +144,11 @@ def create_creditCard():
             mensage.controls.append(create_creditCard())
             mensage.controls.append(ft.Text(value=error_text, color='red', size=15, text_align=ft.TextAlign.CENTER))
             mensage.update()
-    
 
 
     return ft.Card(
         content=ft.Container(
-            padding=padding.only(43, 30, 43, 18),
+            padding=ft.padding.only(43, 30, 43, 18),
             width="auto",
             alignment=ft.alignment.center,
             bgcolor="#464646",
@@ -162,7 +159,7 @@ def create_creditCard():
                 ft.Column( # Dados Cartão
                     [   cardNumber,
                         name,
-                        ft.Row([    
+                        ft.Row([
                             cvv,
                             valDate
                         ], alignment='left'),
