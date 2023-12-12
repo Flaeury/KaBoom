@@ -45,22 +45,19 @@ def main(page: ft.Page):
                         cart.selected_products(),
                         cart.change_screen(page),
                     ],
-               
-             
-                    
+
                 )
             )
         elif page.route == "/payment":
-            mensage, options = payment.checkout()
+            mensage, options = payment.paymentOptions()
             page.views.append(
                 ft.View(
                     "/cart",
                     [
                         create_app_bar_payment(page)
                     ],
-
-                    mensage,
                     options,
+                    mensage
                 )
             )
         page.update()

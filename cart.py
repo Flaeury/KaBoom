@@ -108,7 +108,7 @@ def selected_products():
 def change_screen(page):
     return ft.FloatingActionButton(
         content=ft.Row(
-            [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("Finalizar Compra")], alignment="center", spacing=5),
+            [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")], alignment="center", spacing=5),
         bgcolor="#0c4b85",
 
         shape=ft.RoundedRectangleBorder(radius=5),
