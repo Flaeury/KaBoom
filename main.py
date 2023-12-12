@@ -44,7 +44,7 @@ def main(page: ft.Page):
                     route="/cart",
                     controls=[   # AppBar do carrinho
                         create_app_bar_cart(page),
-                        cart.selected_products(),
+                        cart.selected_products(dashboard.table),
                         cart.change_screen(page),
                     ],
 
@@ -60,7 +60,7 @@ def main(page: ft.Page):
                         options,
                         mensage
                     ],
-                    
+
                 )
             )
         elif page.route == "/finalcheckoutPIX":

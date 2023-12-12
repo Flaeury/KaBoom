@@ -2,8 +2,13 @@ import json
 import flet as ft
 from flet import *
 from dashboard import table
-
+import dashboard
 # Card de informação dos produtos
+
+components = {
+    'list': ft.Ref[ft.ListView](),
+    # add todos os compontens da tela aqui
+}
 
 
 def create_product_card(product):
@@ -78,6 +83,8 @@ def removeBtn(e):
             if row[1] == name and row[2] == price and row[0] == image and row[3] == stock:
                 table.rows.pop(idx)
                 break
+    components['list'].current.controls = create_cards_from_table(table)
+    dashboard.page.update()
 
 # Exibir produtos em lista na interface grafica
 
@@ -97,12 +104,13 @@ def create_cards_from_table(table):
 # Lista os cards criados
 
 
-def selected_products():
+def selected_products(table):
     return ft.ListView(
         # auto_scroll=True,
         spacing=10,
         padding=20,
         expand=1,
+        ref=components['list'],
         controls=create_cards_from_table(table)
     )
 
