@@ -197,7 +197,7 @@ def validate_credit_card(card_number, card_name, cvv, date):
         return False, '   Data de validade inválida.'
     
     # Verificar o nome do titular
-    if not re.match(r'^[\w]+$', card_name):
+    if not re.match(r'^[\s\w]+$', card_name):
         return False, '   Nome do titular deve conter somente letras.'
 
     # Se todas as verificações passarem, o cartão é considerado válido
