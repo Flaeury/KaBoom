@@ -16,7 +16,7 @@ def paymentOptions(page):  # Pass the page object as an argument
                 label='CLIQUE NO BOTÃO PARA GERAR O QR CODE DO PAGAMENTO',
                 disabled=True
             )
-            endButton = ft.Column([
+            endButton = ft.Row([
                 ft.Container(bgcolor='gray'),
                 change_screen_pix(page)  # Pass the page object
             ])
@@ -43,7 +43,7 @@ def paymentOptions(page):  # Pass the page object as an argument
             ft.Container(
                 bgcolor="#7D7D7D",
                 border_radius=ft.border_radius.only(
-                    top_left=10, top_right=10, bottom_left=5, bottom_right=5,
+                    top_left=7, top_right=7, bottom_left=7, bottom_right=7,
                 ),
                 height=55,
                 content=ft.Column([
