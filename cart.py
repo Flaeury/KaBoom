@@ -146,7 +146,6 @@ def show_value(table):
 
 
 def change_screen(page):
-    # Check if the shopping cart is not empty
     if table.rows:
         return ft.FloatingActionButton(
             content=ft.Row(
@@ -160,9 +159,5 @@ def change_screen(page):
             on_click=lambda _: page.go("/payment")
         )
     else:
-        # If the shopping cart is empty, return an empty container
+
         return ft.Container()
-
-# ...
-
-# In your main function where you set up the views, use the change_screen function
