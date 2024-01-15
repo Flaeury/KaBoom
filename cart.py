@@ -1,10 +1,10 @@
 import flet as ft
 import dashboard
-# Card de informação dos produtos
 
 components = {
     'list': ft.Ref[ft.ListView](),
     'compra': ft.Ref[ft.ListView](),
+    'button': ft.Ref[ft.ListView](),
 }
 
 
@@ -25,12 +25,9 @@ def create_product_card(product):
                 ft.Container(
                     padding=10,
                     width=450,
-
                     height=190,
                     bgcolor="#f5f5f5",
-
                     content=ft.Column([
-
                         ft.Text(product["name"],
                                 size=18,
                                 color=ft.colors.BLACK,
@@ -55,19 +52,14 @@ def create_product_card(product):
                         ),
                     ])
                 ),
-
                 ft.Container(
                     padding=50,
-                    content=ft.Column([
-
-                    ])
+                    content=ft.Column([])  # Removed empty Column
                 )
             ])
         )
     )
 
-
-# Exibir produtos em lista na interface grafica
 
 def create_cards_from_table(table):
     cards = []
@@ -81,20 +73,15 @@ def create_cards_from_table(table):
         cards.append(create_product_card(product_dict))
     return cards
 
-# Lista os cards criados
-
 
 def selected_products(table):
     return ft.ListView(
-        # auto_scroll=True,
         spacing=10,
         padding=20,
         expand=1,
         ref=components['list'],
         controls=create_cards_from_table(table)
     )
-
-# Remover produto
 
 
 def removeBtn(e):
@@ -105,12 +92,14 @@ def removeBtn(e):
         stock = e.control.key['estoque']
 
         for idx, row in enumerate(dashboard.table.rows):
-            if row[0] == image and row[1] == name and row[2] == price and  row[3] == stock:
+            if row[0] == image and row[1] == name and row[2] == price and row[3] == stock:
                 dashboard.table.rows.pop(idx)
                 break
 
-        components['list'].current.controls = create_cards_from_table(dashboard.table)
+        components['list'].current.controls = create_cards_from_table(
+            dashboard.table)
         components['compra'].current.controls = atualizar(dashboard.table)
+        # components['button'].current.controls = change_screen()
         dashboard.page.update()
 
 
@@ -121,13 +110,20 @@ def valor_total(table):
             "price": row[2],
         }
         totalCompra += int(product_dict["price"])
+
+    # if aqui
+
     return totalCompra
+
 
 def atualizar(table):
     total_value = valor_total(table)
-    return [ft.Text(f"Total: R$ {total_value}",
-                    size=17,
-                    weight=ft.FontWeight.BOLD)]
+    if total_value != 0:
+
+        return [ft.Text(f"Total: R$ {total_value}",
+                        size=17,
+                        weight=ft.FontWeight.BOLD), change_screen()]
+
 
 def show_value(table):
     return ft.ListView(
@@ -139,19 +135,19 @@ def show_value(table):
     )
 
 
-def change_screen(page):
-    if dashboard.table.rows:
-        return ft.FloatingActionButton(
-            content=ft.Row(
-                [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")],
-                alignment="center",
-                spacing=5
-            ),
-            bgcolor="#0c4b85",
-            shape=ft.RoundedRectangleBorder(radius=5),
-            width=190,
-            on_click=lambda _: page.go("/payment")
-        )
-    else:
+def buttonPagar(page):
+    return ft.FloatingActionButton(
+        content=ft.Row(
+            [ft.Icon(ft.icons.SHOPPING_CART_CHECKOUT), ft.Text("PAGAR")],
+            alignment="center",
+            spacing=5
+        ),
+        bgcolor="#0c4b85",
+        shape=ft.RoundedRectangleBorder(radius=5),
+        width=190,
+        on_click=lambda _: page.go("/payment")
+    )
 
-        return ft.Container()
+
+def change_screen():
+    return buttonPagar(dashboard.page)

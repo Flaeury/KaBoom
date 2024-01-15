@@ -27,7 +27,7 @@ def main(page: ft.Page):
                 route="/",
                 controls=[
                     # AppBar dashboard
-                    appbar.create_app_bar_dashboard(page),  
+                    appbar.create_app_bar_dashboard(page),
                     # Cria a dashboard com os produtos
                     dashboard.create_product_grid("./assets/BD/products.txt"),
                 ],
@@ -44,10 +44,10 @@ def main(page: ft.Page):
                         appbar.create_app_bar_cart(page),
                         # Gerar cards do carrinho
                         cart.selected_products(dashboard.table),
-                        
+
                         cart.show_value(dashboard.table),
                         # Botão para ir para o pagamento
-                        cart.change_screen(page),
+
                     ],
 
                 )
